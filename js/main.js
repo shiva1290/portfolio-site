@@ -354,32 +354,51 @@ const initGlowEffect = () => {
     });
 };
 
-// 3D tilt effect for cards
 const init3DTiltEffect = () => {
     const cards = document.querySelectorAll('.project-card, .stat-card, .education-item, .certification-item, .achievement-item');
-    
+
     cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
+        // Ensure persistent styles
+        card.style.transition = 'transform 0.2s ease';
+        card.style.transformStyle = 'preserve-3d';
+        card.style.willChange = 'transform';
+
+        let requestId = null;
+
+        const handleMouseMove = (e) => {
             const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left; // x position within the card
-            const y = e.clientY - rect.top; // y position within the card
-            
-            // Calculate rotation based on mouse position
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
             const rotateX = (y - centerY) / 10;
             const rotateY = (centerX - x) / 10;
-            
-            // Apply the 3D rotation
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            // Reset the transform when mouse leaves
+
+            if (requestId) cancelAnimationFrame(requestId);
+
+            requestId = requestAnimationFrame(() => {
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+            });
+        };
+
+        const handleMouseLeave = () => {
+            if (requestId) cancelAnimationFrame(requestId);
             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-        });
+        };
+
+        // Avoid duplicate listeners
+        card.removeEventListener('mousemove', handleMouseMove);
+        card.removeEventListener('mouseleave', handleMouseLeave);
+
+        // Add listeners
+        card.addEventListener('mousemove', handleMouseMove);
+        card.addEventListener('mouseleave', handleMouseLeave);
     });
 };
+
+// Run this AFTER DOM is fully loaded
+document.addEventListener('DOMContentLoaded', init3DTiltEffect);
+
 
 // 3D hover effect for code card
 const initCodeCard3DEffect = () => {
@@ -506,7 +525,7 @@ const initParallaxEffect = () => {
     
     let lastScrollY = window.scrollY;
     const parallaxElements = document.querySelectorAll(
-        '.parallax-bio, .parallax-experience, .parallax-interests, ' +
+        '.parallax-bio, .parallax-experience, ' +
         '.parallax-image-base, .decorative-1, .decorative-2, .parallax-badge'
     );
     
@@ -531,7 +550,6 @@ const initParallaxEffect = () => {
                         element.classList.contains('decorative-2') ? 0.05 :
                         element.classList.contains('parallax-bio') ? 0.03 :
                         element.classList.contains('parallax-experience') ? 0.04 :
-                        element.classList.contains('parallax-interests') ? 0.05 :
                         element.classList.contains('parallax-badge') ? 0.04 : 0.03;
             
             const yOffset = scrollY * speed;

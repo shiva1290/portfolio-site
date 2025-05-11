@@ -547,7 +547,6 @@ nav.container {
     /* Disable parallax effects completely on mobile */
     .parallax-bio,
     .parallax-experience, 
-    .parallax-interests,
     .parallax-image-base,
     .decorative-1,
     .decorative-2,
@@ -576,40 +575,6 @@ nav.container {
         padding: 0;
         overflow: visible;
         margin-bottom: var(--mobile-section-spacing);
-    }
-    
-    /* Fixed image container position and size */
-    .parallax-right {
-        max-height: 350px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: var(--mobile-component-spacing);
-        z-index: 1;
-    }
-    
-    .parallax-image-container {
-        display: flex;
-        width: 250px;
-        height: 300px;
-        max-width: 80%;
-        margin: 0 auto;
-    }
-    
-    /* Extra spacing after interests section to prevent overlap */
-    .parallax-interests {
-        margin-bottom: var(--mobile-section-spacing) !important;
-    }
-    
-    /* Center titles */
-    .parallax-left h3 {
-        text-align: center;
-        margin: 0 auto var(--mobile-element-spacing);
-    }
-    
-    .parallax-left h3::after {
-        left: 50%;
-        transform: translateX(-50%);
     }
     
     /* Make social icons and buttons centered */
@@ -1075,19 +1040,19 @@ header.scrolled nav.container {
 }
 
 .highlight {
-    color: var(--primary-color);
-    position: relative;
+    /* Removing the highlight styling */
+    display: none;
 }
 
 .highlight::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 30%;
-    background-color: rgba(187, 134, 252, 0.2);
-    z-index: -1;
+    /* Removing the highlight effect */
+    display: none;
+}
+
+.bold-name {
+    color: var(--primary-color);
+    font-weight: 700;
+    position: relative;
 }
 
 .cta-buttons {
@@ -3197,13 +3162,23 @@ html {
     justify-content: center;
     align-items: center;
     min-height: 350px;
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-xl) 0;
     margin-top: var(--spacing-xl);
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
     width: 100%;
-    max-width: 800px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.parallax-cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    width: 100%;
+    padding: var(--spacing-lg) 0;
 }
 
 @media (max-width: 768px) {
@@ -3214,24 +3189,15 @@ html {
         padding: 0;
     }
     
-    /* Keep interests panel from being cut off */
-    .parallax-interests {
-        margin-bottom: var(--spacing-3xl) !important;
+    .parallax-cards-container {
+        flex-direction: column;
+        gap: 20px;
     }
-}
-
-.parallax-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    z-index: 2;
-    position: relative;
-    width: 100%;
 }
 
 .parallax-left h3 {
     color: var(--primary-color);
-    font-size: calc(var(--heading-3) * 0.9);
+    font-size: calc(var(--heading-3) * 0.8);
     margin-bottom: var(--spacing-sm);
     font-weight: 500;
     position: relative;
@@ -3240,7 +3206,18 @@ html {
     width: 100%;
 }
 
-.parallax-left h3::after {
+.parallax-bio h3, .parallax-experience h3 {
+    color: var(--primary-color);
+    font-size: calc(var(--heading-3) * 0.8);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.parallax-bio h3::after, .parallax-experience h3::after {
     content: '';
     position: absolute;
     bottom: -6px;
@@ -3251,10 +3228,10 @@ html {
     background: linear-gradient(90deg, var(--primary-color), transparent);
 }
 
-.parallax-bio, .parallax-experience, .parallax-interests {
-    margin-bottom: var(--spacing-lg);
+.parallax-bio, .parallax-experience {
+    margin-bottom: 0;
     transform: translateY(0);
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
     position: relative;
     padding: var(--spacing-lg);
     background-color: rgba(35, 35, 40, 0.4);
@@ -3264,22 +3241,88 @@ html {
     border: 1px solid var(--card-border);
     box-shadow: var(--card-shadow);
     width: 100%;
+    max-width: 400px;
     text-align: center;
+    flex: 1;
 }
 
-.parallax-bio {
-    transform: translateY(calc(var(--parallax-offset) * var(--parallax-speed-1) * -1));
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+.parallax-bio:hover, .parallax-experience:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
 }
 
-.parallax-experience {
-    transform: translateY(calc(var(--parallax-offset) * var(--parallax-speed-2) * -1));
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+.parallax-bio p, .parallax-experience p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-sm);
 }
 
-.parallax-interests {
-    transform: translateY(calc(var(--parallax-offset) * var(--parallax-speed-3) * -1));
-    transition: transform 0.1s ease-out;
+.parallax-bio h3, .parallax-experience h3 {
+    color: var(--primary-color);
+    font-size: calc(var(--heading-3) * 0.8);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.parallax-bio h3::after, .parallax-experience h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), transparent);
+}
+
+:root.light-mode .parallax-bio, :root.light-mode .parallax-experience {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+:root.light-mode .parallax-bio:hover, :root.light-mode .parallax-experience:hover {
+    box-shadow: 0 15px 40px rgba(30, 112, 240, 0.15);
+}
+
+.skill-tags-parallax {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: var(--spacing-md);
+}
+
+.skill-tag-parallax {
+    background-color: rgba(91, 141, 239, 0.15);
+    color: var(--primary-color);
+    border: 1px solid rgba(91, 141, 239, 0.3);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.skill-tag-parallax:hover {
+    background-color: rgba(91, 141, 239, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(91, 141, 239, 0.2);
+}
+
+:root.light-mode .skill-tag-parallax {
+    background-color: rgba(91, 141, 239, 0.08);
+    color: #1e70f0;
+    border: 1px solid rgba(91, 141, 239, 0.2);
+}
+
+:root.light-mode .skill-tag-parallax:hover {
+    background-color: rgba(91, 141, 239, 0.15);
+    box-shadow: 0 5px 15px rgba(91, 141, 239, 0.15);
 }
 
 .parallax-right {
@@ -3458,8 +3501,8 @@ html {
 .skill-tags-parallax {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-xs); /* Reduced from --spacing-sm */
-    margin-top: var(--spacing-sm); /* Reduced from --spacing-md */
+    gap: 8px; /* Reduced from --spacing-xs */
+    margin-top: var(--spacing-md); /* Reduced from --spacing-sm */
 }
 
 .skill-tag-parallax {
@@ -4012,7 +4055,7 @@ html {
 /* Optimized scroll animations */
 @keyframes optimizedFadeInUp {
     from {
-        opacity: 0;
+    opacity: 0;
         transform: translateY(20px);
     }
     to {
@@ -4027,7 +4070,7 @@ html {
         transform: translateX(-20px);
     }
     to {
-        opacity: 1;
+    opacity: 1;
         transform: translateX(0);
     }
 }
@@ -4038,7 +4081,7 @@ html {
         transform: translateX(20px);
     }
     to {
-        opacity: 1;
+    opacity: 1;
         transform: translateX(0);
     }
 }
@@ -4301,7 +4344,6 @@ section.appear {
     /* Disable parallax effects completely on mobile */
     .parallax-bio,
     .parallax-experience, 
-    .parallax-interests,
     .parallax-image-base,
     .decorative-1,
     .decorative-2,
@@ -4330,39 +4372,6 @@ section.appear {
         padding: 0;
         overflow: visible;
         margin-bottom: var(--mobile-section-spacing);
-    }
-    
-    /* Fixed image container position and size */
-    .parallax-right {
-        max-height: 350px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: var(--mobile-component-spacing);
-        z-index: 1;
-    }
-    
-    .parallax-image-container {
-        width: 250px;
-        height: 300px;
-        max-width: 80%;
-        margin: 0 auto;
-    }
-    
-    /* Extra spacing after interests section to prevent overlap */
-    .parallax-interests {
-        margin-bottom: var(--mobile-section-spacing) !important;
-    }
-    
-    /* Center titles */
-    .parallax-left h3 {
-        text-align: center;
-        margin: 0 auto var(--mobile-element-spacing);
-    }
-    
-    .parallax-left h3::after {
-        left: 50%;
-        transform: translateX(-50%);
     }
     
     /* Make social icons and buttons centered */
@@ -5047,13 +5056,13 @@ body.nav-open {
         background-color: rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        border-radius: 0;
+        border-radius: 10;
         width: 100%;
     }
 
     /* Switch style adjustments for mobile */
     .switch {
-        width: 46px;
+        width: 60px;
         height: 25px;
     }
 
@@ -5100,4 +5109,146 @@ body.nav-open {
         font-size: 1.1rem;
     }
 }
-  
+
+/* Responsive About Me Section */
+.parallax-about-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
+    padding: var(--spacing-xl) 0;
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.parallax-cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Profile image styling */
+.profile-image-wrapper {
+    width: 180px;
+    height: 180px;
+    position: relative;
+    z-index: 5;
+    flex-shrink: 0;
+    margin: 0 15px;
+    animation: pulse 3s infinite ease-in-out;
+}
+
+.profile-image-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    border: 4px solid var(--primary-color);
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image-container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.profile-image-container:hover .profile-image {
+    transform: scale(1.1);
+}
+
+.profile-glow {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: radial-gradient(circle at center, var(--primary-color) 0%, transparent 70%);
+    opacity: 0.2;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.profile-image-container:hover .profile-glow {
+    opacity: 0.4;
+}
+
+/* Light mode styles for profile image */
+:root.light-mode .profile-image-container {
+    border-color: var(--primary-color);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+:root.light-mode .profile-image-container:hover {
+    box-shadow: 0 20px 40px rgba(30, 112, 240, 0.2);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .parallax-about-container {
+        gap: var(--spacing-md);
+        min-height: auto;
+        margin-bottom: var(--spacing-2xl);
+        padding: 0;
+    }
+    
+    .parallax-cards-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .profile-image-wrapper {
+        order: -1;
+        width: 140px;
+        height: 140px;
+        margin-bottom: 20px;
+        animation: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-image-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+.parallax-left h3 {
+    color: var(--primary-color);
+    font-size: calc(var(--heading-3) * 0.8);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}

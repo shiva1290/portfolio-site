@@ -355,6 +355,9 @@ const initGlowEffect = () => {
 };
 
 const init3DTiltEffect = () => {
+    // Don't run on mobile
+    if (window.innerWidth <= 768 || document.body.classList.contains('touch-device')) return;
+    
     const cards = document.querySelectorAll('.project-card, .stat-card, .education-item, .certification-item, .achievement-item');
 
     cards.forEach(card => {
@@ -362,6 +365,11 @@ const init3DTiltEffect = () => {
         card.style.transition = 'transform 0.2s ease';
         card.style.transformStyle = 'preserve-3d';
         card.style.willChange = 'transform';
+        
+        // Important: Remove any inline styles that might have been set by CSS
+        if (card.style.transform === 'none') {
+            card.style.transform = '';
+        }
 
         let requestId = null;
 
@@ -396,16 +404,20 @@ const init3DTiltEffect = () => {
     });
 };
 
-// Run this AFTER DOM is fully loaded
-document.addEventListener('DOMContentLoaded', init3DTiltEffect);
-
-
 // 3D hover effect for code card
 const initCodeCard3DEffect = () => {
+    // Don't run on mobile
+    if (window.innerWidth <= 768 || document.body.classList.contains('touch-device')) return;
+    
     const card = document.querySelector('.code-card');
     const THRESHOLD = 15;
     
     if (!card) return;
+    
+    // Remove any inline styles that might have been set by CSS
+    if (card.style.transform === 'none') {
+        card.style.transform = '';
+    }
     
     const handleHover = (e) => {
         const rect = card.getBoundingClientRect();
@@ -432,6 +444,11 @@ const initCodeCard3DEffect = () => {
         card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
     };
     
+    // Avoid duplicate listeners
+    card.removeEventListener('mousemove', handleHover);
+    card.removeEventListener('mouseleave', resetStyles);
+    
+    // Add listeners
     card.addEventListener('mousemove', handleHover);
     card.addEventListener('mouseleave', resetStyles);
 };
@@ -471,6 +488,16 @@ document.addEventListener('DOMContentLoaded', () => {
     navSlide();
     initParallaxEffect();
     
+    // Initialize 3D effects
+    init3DTiltEffect();
+    initCodeCard3DEffect();
+    
+    // Periodically check to ensure 3D effects remain active
+    setInterval(() => {
+        init3DTiltEffect();
+        initCodeCard3DEffect();
+    }, 1500);
+    
     // Slight delay for scroll animations to ensure DOM is fully loaded
     setTimeout(() => {
         scrollReveal();
@@ -486,8 +513,6 @@ document.addEventListener('DOMContentLoaded', () => {
     smoothScroll();
     formSubmit();
     initGlowEffect();
-    init3DTiltEffect();
-    initCodeCard3DEffect();
 });
 
 // Recheck scroll animations on page load complete

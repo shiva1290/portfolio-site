@@ -35,6 +35,40 @@ const initCustomCursor = () => {
     animate();
 };
 
+// Theme toggle functionality
+const initThemeToggle = () => {
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const rootElement = document.documentElement;
+    
+    // Check for saved theme preference or use device preference
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme === 'light') {
+        rootElement.classList.add('light-mode');
+    } else if (savedTheme === 'dark') {
+        rootElement.classList.remove('light-mode');
+    } else if (prefersDarkScheme.matches) {
+        rootElement.classList.remove('light-mode');
+    } else {
+        rootElement.classList.add('light-mode');
+    }
+    
+    // Toggle theme when button is clicked
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            rootElement.classList.toggle('light-mode');
+            
+            // Save theme preference
+            if (rootElement.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    }
+};
+
 // Mobile navigation toggle
 const navSlide = () => {
     const burger = document.querySelector('.burger');
@@ -283,6 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
     checkTouchDevice();
     handleResize();
     initCustomCursor();
+    initThemeToggle();
     navSlide();
     scrollReveal();
     smoothScroll();

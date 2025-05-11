@@ -1,34 +1,67 @@
 /* Base styles and variables */
 :root {
-    --primary-bg: #0a0a0a;
-    --secondary-bg: #121212;
-    --card-bg: #1D1E22;
-    --text-color: #eee;
-    --primary-color: #60b7ff;
-    --secondary-color: #da8403;
-    --accent-color: #FF4081;
-    --card-border: rgba(255, 255, 255, 0.1);
-    --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    --font-primary: "Geist", sans-serif;
-    --font-secondary: 'Open Sans', sans-serif;
+    --primary-bg: #000000;
+    --secondary-bg: #080808;
+    --card-bg: rgba(35, 35, 40, 0.65);
+    --text-color: #F0F0F0;
+    --primary-color: #5B8DEF;
+    --secondary-color: #3366CC;
+    --accent-color: #60b7ff;
+    --card-border: rgba(255, 255, 255, 0.12);
+    --card-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    --font-primary: Manrope, "Manrope Placeholder", sans-serif;
+    --font-secondary: ".SFNSText", SFProText-Regular, SFUIText-Regular, ".SFUIText", -apple-system, "system-ui", sans-serif;
     --transition: all 0.3s ease;
-    --heading-1: clamp(2rem, 5vw, 3.5rem);
-    --heading-2: clamp(1.5rem, 4vw, 2.5rem);
-    --heading-3: clamp(1.2rem, 3vw, 1.5rem);
-    --body-text: clamp(0.9rem, 2vw, 1.2rem);
+    --heading-1: clamp(2.5rem, 6vw, 4rem);
+    --heading-2: clamp(1.8rem, 4vw, 2.8rem);
+    --heading-3: clamp(1.2rem, 3vw, 1.8rem);
+    --body-text: clamp(1rem, 2vw, 1.2rem);
     --small-text: clamp(0.8rem, 1.5vw, 0.9rem);
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+    --spacing-4xl: 6rem;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    --radius-full: 9999px;
     caret-color: white;
+}
+
+/* Light Mode Theme Variables - Enhanced version */
+:root.light-mode {
+    --primary-bg: #f5f5f7;
+    --secondary-bg: #ffffff;
+    --card-bg: rgba(245, 245, 250, 0.85);
+    --text-color: #333333;
+    --primary-color: #1e70f0;
+    --secondary-color: #0a4bb3;
+    --card-border: rgba(0, 0, 0, 0.08);
+    --card-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    --card-border-color: rgba(0, 0, 0, 0.1);
+    --white-color: #333; /* Dark text for light backgrounds */
+}
+
+/* Theme transition */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
 }
 
 html {
     scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
@@ -38,7 +71,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--primary-bg);
-    font-size: clamp(16px, 2vw, 18px);
+    font-size: var(--body-text);
     cursor: none;
 }
 
@@ -46,7 +79,7 @@ body {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 clamp(15px, 3vw, 20px);
+    padding: 0 var(--spacing-lg);
 }
 
 section {
@@ -55,11 +88,13 @@ section {
 }
 
 .section-title {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-size: var(--heading-2);
     text-align: center;
-    margin-bottom: clamp(30px, 5vw, 50px);
+    margin-bottom: clamp(30px, 5vw, 60px);
     position: relative;
     color: var(--text-color);
+    font-weight: 400;
+    letter-spacing: -0.03em;
 }
 
 .section-title::after {
@@ -68,8 +103,8 @@ section {
     bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
+    width: 60px;
+    height: 3px;
     background-color: var(--primary-color);
 }
 
@@ -98,51 +133,58 @@ section {
     transition: 0.1s ease;
 }
 
-/* Header and Navigation */
+/* Header and Navigation - Updated to be floating */
 header {
     position: fixed;
-    top: 0;
+    top: var(--spacing-xl);
     left: 0;
-    width: 100%;
+    right: 0;
     z-index: 1000;
-    background-color: rgba(10, 10, 10, 0.95);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
+    width: 100%;
+    padding: 0 var(--spacing-xl);
 }
 
-nav {
+nav.container {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.04);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-left: 20px;
-    padding-right: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 600;
     color: var(--primary-color);
-    text-shadow: 0 0 10px rgba(187, 134, 252, 0.5);
+    padding: var(--spacing-sm) var(--spacing-md);
 }
 
 .nav-links {
     display: flex;
     list-style: none;
+    gap: var(--spacing-md);
 }
 
 .nav-links li {
-    margin-left: 30px;
+    position: relative;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--text-color);
     font-weight: 500;
+    padding: var(--spacing-sm) var(--spacing-md);
     transition: var(--transition);
     position: relative;
+    font-size: 0.95rem;
 }
 
 .nav-links a::after {
@@ -164,6 +206,66 @@ nav {
     width: 100%;
 }
 
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+}
+
+#theme-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#theme-toggle-btn:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.sun-icon, .moon-icon {
+    position: absolute;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.sun-icon {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.moon-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Light mode icons state */
+:root.light-mode .sun-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+:root.light-mode .moon-icon {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+/* Burger menu for mobile */
 .burger {
     display: none;
     cursor: pointer;
@@ -171,20 +273,101 @@ nav {
 
 .burger div {
     width: 25px;
-    height: 3px;
+    height: 2px;
     background-color: var(--text-color);
     margin: 5px;
     transition: var(--transition);
 }
 
+/* Mobile Navigation */
+@media screen and (max-width: 768px) {
+    header {
+        top: var(--spacing-md);
+        padding: 0 var(--spacing-md);
+    }
+    
+    nav.container {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 80px;
+        height: auto;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        padding: var(--spacing-xl) var(--spacing-xl);
+        transition: right 0.3s ease;
+        z-index: 999;
+        border-radius: var(--radius-md);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-links.active {
+        right: var(--spacing-md);
+    }
+
+    .nav-links li {
+        margin: var(--spacing-sm) 0;
+    }
+
+    .burger {
+        display: block;
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Animation for nav links */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+/* Scrolled header */
+header.scrolled nav.container {
+    background-color: rgba(10, 10, 12, 0.95);
+}
+
+/* Scrolled header in light mode */
+:root.light-mode header.scrolled nav.container {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
 /* Code card container */
 .code-animation-container {
-    grid-column: 2;
-    width: 80%;
-    max-width: 800px;
+    grid-column: 2; /* Assuming this is part of a grid layout in your hero section */
+    width: 70%;
+    max-width: 700px;
     margin: 0 auto;
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Ensure it's above other elements if overlapping */
     animation: floater 3s infinite ease-in-out;
 }
 
@@ -197,41 +380,65 @@ nav {
 
 /* Code card styling */
 .code-card {
-    background-color: #1D1E22;
-    border-radius: 8px;
-    padding: 8px 8px 8px 2px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--card-bg);
+    border-radius: 12px; /* Or var(--border-radius-lg) if you prefer variable */
+    padding: 12px; /* Or var(--spacing-sm) */
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--card-border-color); /* Use variable if defined, else --card-border */
     overflow: hidden;
     transform-style: preserve-3d;
     perspective: 1000px;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     aspect-ratio: 7/4;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 /* Glow effect on hover */
 .code-card:hover {
-    box-shadow: 0 5px 15px rgba(138, 180, 248, 0.4);
-    border-color: rgba(138, 180, 248, 0.3);
-    transform: perspective(1000px) rotateX(2deg) rotateY(2deg) scale3d(1.02, 1.02, 1.02);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); /* Darker shadow, consider var(--card-shadow-hover) */
+    border-color: rgba(91, 141, 239, 0.3); /* Primary color with alpha, or var(--primary-color) with adjusted opacity */
 }
 
 /* Code text container */
 .code-text {
-    font-family: 'Consolas', 'Monaco', monospace;
-    font-size: 12px;
-    line-height: 0.7;
-    margin: 0;
-    color: #fff;
+    font-family: var(--font-code, 'Consolas', 'Monaco', monospace); /* Use variable, then fallbacks */
+    font-size: 14px; /* Specific size for code */
+    line-height: 0.7; /* Very tight, as per your style */
+    margin-top: 2%;
+    margin-left: 2%;
+    color: var(--white-color, #fff); /* Base text color for the code block */
     overflow: hidden;
+    text-align: left;
+    padding-left: var(--spacing-xs, 8px); /* Use spacing variable if available */
+}
+
+/* Syntax highlighting for code within .code-text */
+.code-text .tag { /* More specific selector to ensure it applies within code-text */
+    color: var(--white-color, #fff); /* CHANGED: Orange text made white */
+}
+
+.code-text .content { /* More specific selector */
+    color: #8AB4F8; /* This is a blue-like color for content text */
+}
+
+/* Ensure line numbers and other specific spans inside code-text are styled if needed */
+.code-text .line-number {
+    color: #666; /* Or var(--text-muted-color) if you want it themeable */
+    margin-right: calc(var(--spacing-xs, 8px) / 2);
+    user-select: none;
 }
 
 /* Line number styling */
 .line-number {
     color: #666;
-    margin-right: 5px;
+    margin-right: 10px;
     user-select: none;
+    display: inline-block;
+    min-width: 20px;
+    text-align: right;
 }
 
 /* Syntax highlighting */
@@ -245,12 +452,12 @@ nav {
 
 /* Individual line styling */
 .code-line {
-    padding-left: 0;
-    display: block;
-    line-height: 0.7;
+    display: flex;
+    line-height: 1.7;
     white-space: pre;
     overflow: hidden;
     width: 0;
+    margin-left: 0;
     border-right: 1px solid transparent;
     margin-bottom: 0;
 }
@@ -352,14 +559,18 @@ nav {
 
 .hero h1 {
     font-size: var(--heading-1);
-    margin-bottom: 20px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 25px;
     color: var(--text-color);
+    letter-spacing: -0.03em;
 }
 
 .hero h2 {
-    font-size: var(--heading-2);
-    margin-bottom: 20px;
-    color: var(--secondary-color);
+    font-size: var(--heading-3);
+    font-weight: 400;
+    margin-bottom: 25px;
+    color: var(--primary-color);
 }
 
 .hero p {
@@ -390,16 +601,18 @@ nav {
 
 .btn {
     display: inline-block;
-    padding: 12px 30px;
-    border-radius: 50px;
+    padding: 14px 32px;
+    border-radius: 8px;
     text-decoration: none;
-    font-weight: 500;
-    transition: var(--transition);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: all 0.3s ease;
     cursor: pointer;
     border: none;
     position: relative;
     overflow: hidden;
     z-index: 1;
+    text-align: center;
 }
 
 .btn::before {
@@ -420,19 +633,20 @@ nav {
 
 .primary-btn {
     background-color: var(--primary-color);
-    color: #000;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(91, 141, 239, 0.3);
 }
 
 .secondary-btn {
-    background-color: transparent;
-    border: 2px solid var(--primary-color);
+    background-color: rgba(91, 141, 239, 0.1);
+    border: 1px solid var(--primary-color);
     color: var(--primary-color);
 }
 
 .primary-btn:hover {
-    background-color: #da6f22;
+    background-color: #3366CC;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(187, 134, 252, 0.4);
+    box-shadow: 0 8px 20px rgba(91, 141, 239, 0.4);
 }
 
 .secondary-btn:hover {
@@ -589,12 +803,11 @@ nav {
 }
 .stat-card {
     background-color: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 15px;
+    border-radius: 12px;
     padding: min(30px, 5vw);
     text-align: center;
     width: 100%;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: var(--card-shadow);
     position: relative;
     overflow: hidden;
@@ -603,6 +816,8 @@ nav {
     --x: 50%;
     --y: 50%;
     --glow-opacity: 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .stat-card::before {
@@ -624,9 +839,9 @@ nav {
 }
 
 .stat-card:hover {
-    transform: translateY(-15px) scale(1.05);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-    border-color: var(--primary-color);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    border-color: rgba(91, 141, 239, 0.3);
     --glow-opacity: 1;
 }
 
@@ -643,7 +858,7 @@ nav {
 }
 
 .stat-card p {
-    color: #ffffff;
+    color: var(--text-color);
     font-size: 1rem;
     position: relative;
     z-index: 2;
@@ -728,12 +943,14 @@ nav {
 
 .project-card {
     background-color: var(--card-bg);
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--card-shadow);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid var(--card-border);
     position: relative;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .project-card::before {
@@ -748,8 +965,8 @@ nav {
 }
 
 .project-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
 }
 
 .project-card:hover::before {
@@ -950,12 +1167,14 @@ nav {
 .timeline-content {
     padding: 20px;
     background-color: var(--card-bg);
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: var(--card-shadow);
     transition: var(--transition);
     border: 1px solid var(--card-border);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .timeline-content::before {
@@ -1042,12 +1261,14 @@ nav {
 .education-item {
     background-color: var(--card-bg);
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: var(--card-shadow);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid var(--card-border);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .education-item::after {
@@ -1061,6 +1282,7 @@ nav {
     border-width: 0 0 50px 50px;
     border-color: transparent transparent rgba(187, 134, 252, 0.1) transparent;
     transition: var(--transition);
+    z-index: 0;
 }
 
 .education-item:hover {
@@ -1076,18 +1298,21 @@ nav {
     font-size: 1.3rem;
     margin-bottom: 10px;
     color: var(--primary-color);
+    position: relative; z-index: 1;
 }
 
 .education-item h4 {
     font-size: 1.1rem;
     margin-bottom: 10px;
     color: var(--text-color);
+    position: relative; z-index: 1;
 }
 
 .education-date, .education-grade {
     font-size: 0.9rem;
     color: #aaa;
     margin-bottom: 5px;
+    position: relative; z-index: 1;
 }
 
 .subsection-title {
@@ -1113,13 +1338,16 @@ nav {
 .certification-item {
     background-color: var(--card-bg);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: var(--card-shadow);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid var(--card-border);
     display: flex;
     align-items: flex-start;
     gap: 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow: hidden;
 }
 
 .certification-item:hover {
@@ -1132,10 +1360,6 @@ nav {
     font-size: 1.5rem;
     color: var(--primary-color);
     margin-top: 5px;
-}
-
-.certification-content {
-    flex: 1;
 }
 
 .certification-item h4 {
@@ -1167,54 +1391,63 @@ nav {
     display: flex;
     background-color: var(--card-bg);
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: var(--card-shadow);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid var(--card-border);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
-.achievement-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(187, 134, 252, 0.1) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
+/* Dark mode hover (default) */
 .achievement-item:hover {
+    background-color: rgba(35, 35, 40, 0.9); /* Slightly lighter but still dark */
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border-color: rgba(91, 141, 239, 0.3);
 }
 
-.achievement-item:hover::before {
-    opacity: 1;
+.achievement-item:hover .achievement-icon {
+    color: var(--primary-color);
+    transform: scale(1.2);
 }
 
+/* Light mode hover styles - completely separate from dark mode */
+:root.light-mode .achievement-item {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+:root.light-mode .achievement-item:hover {
+    background-color: rgba(240, 248, 255, 0.7); /* Very light blue background */
+    border-color: rgba(30, 112, 240, 0.1); /* Lighter blue border */
+    box-shadow: 0 10px 25px rgba(30, 112, 240, 0.08); /* More subtle blue shadow */
+    transform: translateY(-5px);
+}
+
+/* Icon styling for both modes */
 .achievement-icon {
     font-size: 2rem;
     color: var(--primary-color);
     margin-right: 20px;
     transition: var(--transition);
-}
-
-.achievement-item:hover .achievement-icon {
-    transform: scale(1.2);
+    position: relative; 
+    z-index: 1;
 }
 
 .achievement-content h3 {
     font-size: 1.3rem;
     margin-bottom: 10px;
     color: var(--primary-color);
+    position: relative; z-index: 1;
 }
 
 .achievement-content p {
     color: #aaa;
+    position: relative; z-index: 1;
 }
 
 /* Contact Section */
@@ -1304,6 +1537,8 @@ nav {
     font-size: 1rem;
     color: var(--text-color);
     transition: var(--transition);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .form-group input:focus, .form-group textarea:focus {
@@ -1415,7 +1650,7 @@ nav {
     --glow-size: 300px;
     --glow-opacity: 0;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     transition: transform 0.2s ease;
     will-change: transform;
     transform-style: preserve-3d;
@@ -1478,42 +1713,12 @@ nav {
 }
 
 /* Mobile Navigation */
-@media screen and (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        right: -100%;
-        top: 70px;
-        height: calc(100vh - 70px);
-        background-color: var(--secondary-bg);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        transition: right 0.3s ease;
-        z-index: 999;
-    }
-
-    .nav-links.active {
-        right: 0;
-    }
-
-    .nav-links li {
-        margin: 15px 0;
-    }
-
-    .burger {
-        display: block;
-    }
-}
-
 @media only screen and (max-width: 768px) {
     .hero {
       display: flex;
       flex-direction: column;
       gap: 20px;
       min-height: 70vh;
-
     }
     .hero-particles{
         min-height: 70vh;
@@ -1521,18 +1726,22 @@ nav {
     .profile-image img, 
     .about-image img,
     .image-wrapper {
-      max-width: 80%; /* Reduce to 80% of container width */
+      max-width: 80%;
       height: auto;
+      align-items: center;
+      margin-left: auto;
+      margin-right: auto;
     }
   
     .hero-content {
-      order: 1; /* This ensures the text content appears first */
+      order: 1;
+      text-align: center;
     }
   
     .code-animation-container {
-      order: 2; /* This moves the code container below the text */
+      order: 2;
       width: 90%;
-      margin: 0 auto;
+      margin: 20px auto 0;
     }
   }
   
@@ -1541,6 +1750,7 @@ nav {
 img {
     max-width: 100%;
     height: auto;
+    display: block;
 }
 
 /* Animation for nav links */
@@ -1579,8 +1789,349 @@ section.appear {
     transform: translateY(0);
 }
 
-/* Scrolled header */
-header.scrolled {
-    background-color: var(--secondary-bg);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+/* Typography adjustments for Manrope headings without bold */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+/* Add dotted line separator similar to Monetise */
+.dotted-separator {
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(to right, var(--primary-color) 50%, transparent 50%);
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+    margin: 20px 0;
+}
+
+/* Checkmark styles similar to Monetise */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.feature-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Price tag styling similar to Monetise */
+.price-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    background-color: rgba(91, 141, 239, 0.1);
+    border-radius: 4px;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-left: 10px;
+    font-size: 0.9em;
+}
+
+/* Hero section update for Monetise style */
+.hero h1 {
+    font-size: var(--heading-1);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    color: var(--text-color);
+    letter-spacing: -0.03em;
+}
+
+.hero h2 {
+    font-size: var(--heading-3);
+    font-weight: 400;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+}
+
+/* Update to match Monetise dotted line price layout */
+.pricing-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.pricing-item:last-child {
+    border-bottom: none;
+}
+
+.pricing-name {
+    display: flex;
+    align-items: center;
+}
+
+.pricing-name::before {
+    content: '✓';
+    color: var(--primary-color);
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.pricing-value {
+    font-weight: 600;
+    color: #aaa;
+}
+
+/* Total price row */
+.pricing-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.total-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.total-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+/* Update other specific heading styles to remove bold */
+.timeline-content h3,
+.timeline-content h4,
+.education-item h3,
+.education-item h4,
+.certification-item h4,
+.achievement-content h3,
+.contact-text h3,
+.contact-social h3,
+.footer-logo h3,
+.stat-card h2,
+.subsection-title {
+    font-weight: 400;
+}
+
+/* Light mode specific overrides - Navigation */
+:root.light-mode nav.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+:root.light-mode .nav-links a {
+    color: #333;
+}
+
+:root.light-mode .burger div {
+    background-color: #333;
+}
+
+:root.light-mode #theme-toggle-btn {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #333;
+}
+
+/* Light mode specific overrides - Code Card */
+:root.light-mode .code-card {
+    background-color: #f8f8f8;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+:root.light-mode .code-text {
+    color: #333;
+}
+
+:root.light-mode .line-number {
+    color: #999;
+}
+
+:root.light-mode .tag {
+    color: #e45649;
+}
+
+:root.light-mode .content {
+    color: #0f62fe;
+}
+
+/* Light mode buttons */
+:root.light-mode .primary-btn {
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(30, 112, 240, 0.3);
+}
+
+:root.light-mode .secondary-btn {
+    background-color: rgba(30, 112, 240, 0.1);
+    border: 1px solid var(--primary-color);
+}
+
+:root.light-mode .primary-btn:hover {
+    background-color: var(--secondary-color);
+    box-shadow: 0 6px 15px rgba(30, 112, 240, 0.4);
+}
+
+:root.light-mode .secondary-btn:hover {
+    background-color: rgba(30, 112, 240, 0.15);
+    box-shadow: 0 4px 12px rgba(30, 112, 240, 0.2);
+}
+
+/* Light mode cards and sections */
+:root.light-mode .section-title::after {
+    background: linear-gradient(90deg, var(--primary-color), rgba(30, 112, 240, 0.5));
+}
+
+:root.light-mode .project-card,
+:root.light-mode .stat-card,
+:root.light-mode .education-item,
+:root.light-mode .certification-item,
+:root.light-mode .achievement-item,
+:root.light-mode .timeline-content {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+:root.light-mode .project-card:hover,
+:root.light-mode .stat-card:hover,
+:root.light-mode .education-item:hover,
+:root.light-mode .certification-item:hover,
+:root.light-mode .achievement-item:hover {
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    border-color: rgba(30, 112, 240, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Light mode gradients for interactive elements */
+:root.light-mode .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(30, 112, 240, 0.05) 0%, rgba(255, 255, 255, 0) 50%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+:root.light-mode .project-card::before,
+:root.light-mode .stat-card::before,
+:root.light-mode .education-item::before {
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(30, 112, 240, 0.15), transparent 70%);
+}
+
+/* Light mode social buttons */
+:root.light-mode .social-btn {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--primary-color);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+:root.light-mode .social-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(30, 112, 240, 0.3);
+}
+
+/* Light mode forms */
+:root.light-mode .form-group input,
+:root.light-mode .form-group textarea {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+:root.light-mode .form-group input:focus,
+:root.light-mode .form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(30, 112, 240, 0.15);
+}
+
+/* Light mode footer */
+:root.light-mode .footer {
+    background-color: rgba(245, 245, 250, 0.9);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+:root.light-mode .footer::before {
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+/* Light mode skill bars */
+:root.light-mode .skill-bar {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+:root.light-mode .skill-level {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+:root.light-mode .skill-tag {
+    background-color: rgba(30, 112, 240, 0.08);
+    color: var(--primary-color);
+}
+
+/* Light mode achievements and contact info fixes */
+:root.light-mode .achievement-item {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+:root.light-mode .achievement-item:hover {
+    background-color: rgba(255, 255, 255, 1);
+    border-color: rgba(30, 112, 240, 0.2);
+    box-shadow: 0 10px 25px rgba(30, 112, 240, 0.15);
+    transform: translateY(-5px);
+}
+
+:root.light-mode .achievement-icon {
+    color: var(--primary-color);
+}
+
+:root.light-mode .achievement-content h3 {
+    color: var(--primary-color);
+}
+
+:root.light-mode .achievement-content p {
+    color: #555;
+}
+
+/* Fix for email and phone links in contact section */
+.contact-text a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+    padding-bottom: 2px;
+}
+
+.contact-text a:hover {
+    color: var(--primary-color);
+    border-bottom: 1px dashed var(--primary-color);
+}
+
+:root.light-mode .contact-text a {
+    color: #555;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+}
+
+:root.light-mode .contact-text a:hover {
+    color: var(--primary-color);
+    border-bottom: 1px dashed var(--primary-color);
 }

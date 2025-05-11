@@ -5,117 +5,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shiva Gupta | Computer Science Engineer</title>
     <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
+
     <header>
-        <nav>
-          <div class="logo">Shiva Gupta</div>
-          <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+      <nav class="container">
+        <div class="logo">Shiva Gupta</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+          <div class="theme-toggle">
+            <button id="theme-toggle-btn" aria-label="Toggle theme">
+              <span class="sun-icon"><i class="fas fa-sun"></i></span>
+              <span class="moon-icon"><i class="fas fa-moon"></i></span>
+            </button>
+          </div>
           <div class="burger">
             <div class="line1"></div>
             <div class="line2"></div>
             <div class="line3"></div>
           </div>
-        </nav>
-      </header>
-      
- 
+        </div>
+      </nav>
+    </header>
+
     <main>
       <section id="home" class="hero">
         <div class="hero-content">
           <h1>Hi, I'm <span class="highlight">Shiva Gupta</span></h1>
-          <h2 class="glitch-text" data-text="Computer Science Engineer">
-            Computer Science Engineer
+          <h2 class="glitch-text" data-text="Software Engineer & Builder">
+            Software Engineer & Builder
           </h2>
           <p>
-            Passionate about coding, web development, and the endless world around it.
+            I build projects with modern web technologies and share my journey
+            openly. Focused on creating practical solutions and learning in
+            public.
           </p>
           <div class="cta-buttons">
-            <a href="https://flowcv.com/resume/gswk46mecp" class="btn primary-btn">Download my resume</a>
-            <a href="#contact" class="btn secondary-btn">Contact Me</a>
+            <a
+              href="https://flowcv.com/resume/gswk46mecp"
+              class="btn primary-btn"
+              >Download Resume</a
+            >
+            <a href="#contact" class="btn secondary-btn">Let's Connect</a>
           </div>
           <div class="social-links">
             <a
               href="https://www.linkedin.com/in/shivaguptacse/"
               target="_blank"
               class="social-btn"
+              aria-label="LinkedIn Profile"
               ><i class="fab fa-linkedin"></i
             ></a>
             <a
               href="https://github.com/shiva1290"
               target="_blank"
               class="social-btn"
+              aria-label="GitHub Profile"
               ><i class="fab fa-github"></i
             ></a>
-            <a href="mailto:shiva.gupta1290@gmail.com" class="social-btn"
+            <a
+              href="mailto:shiva.gupta1290@gmail.com"
+              class="social-btn"
+              aria-label="Email Me"
               ><i class="fas fa-envelope"></i
             ></a>
-          </div>  
-        </div>
-            <div class="code-animation-container">
-                <div class="code-card">
-                  <div class="code-container">
-                    <div class="code-line line1">
-                      <span class="line-number">1</span> <span class="tag">&lt;!DOCTYPE html&gt;</span>
-                    </div>
-                    <div class="code-line line2">
-                      <span class="line-number">2</span> <span class="tag">&lt;html&gt;</span>
-                    </div>
-                    <div class="code-line line3">
-                      <span class="line-number">3</span> <span class="tag">&lt;head&gt;&lt;title&gt;</span><span class="content">Shiva Gupta</span><span class="tag">&lt;/title&gt;</span>
-                    </div>
-                    <div class="code-line line4">
-                      <span class="line-number">4</span> <span class="tag">&lt;link rel="stylesheet" href="styles.css"&gt;</span>
-                    </div>
-                    <div class="code-line line5">
-                      <span class="line-number">5</span> <span class="tag">&lt;/head&gt;</span>
-                    </div>
-                    <div class="code-line line6">
-                      <span class="line-number">6</span> <span class="tag">&lt;body&gt;</span>
-                    </div>
-                    <div class="code-line line7">
-                      <span class="line-number">7</span> <span class="tag">&lt;h1&gt;</span><span class="content">Hello, I'm a Developer</span><span class="tag">&lt;/h1&gt;</span>
-                    </div>
-                    <div class="code-line line8">
-                      <span class="line-number">8</span> <span class="tag">&lt;p&gt;</span><span class="content">Welcome to my portfolio</span><span class="tag">&lt;/p&gt;</span>
-                    </div>
-                    <div class="code-line line9">
-                      <span class="line-number">9</span> <span class="tag">&lt;/body&gt;</span>
-                    </div>
-                    <div class="code-line line10">
-                      <span class="line-number">10</span> <span class="tag">&lt;/html&gt;</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
           </div>
+        </div>
+
+        <div class="code-animation-container">
+          <div class="code-card">
+            <div class="code-text">
+              <div class="code-line line1">
+                <span class="line-number">1</span>
+                <span class="tag">&lt;!DOCTYPE html&gt;</span>
+              </div>
+              <div class="code-line line2">
+                <span class="line-number">2</span>
+                <span class="tag">&lt;html&gt;</span>
+              </div>
+              <div class="code-line line3">
+                <span class="line-number">3</span>
+                <span class="tag">&lt;head&gt;&lt;title&gt;</span
+                ><span class="content">Shiva Gupta</span
+                ><span class="tag">&lt;/title&gt;</span>
+              </div>
+              <div class="code-line line4">
+                <span class="line-number">4</span>
+                <span class="tag"
+                  >&lt;link rel="stylesheet" href="styles.css"&gt;</span
+                >
+              </div>
+              <div class="code-line line5">
+                <span class="line-number">5</span>
+                <span class="tag">&lt;/head&gt;</span>
+              </div>
+              <div class="code-line line6">
+                <span class="line-number">6</span>
+                <span class="tag">&lt;body&gt;</span>
+              </div>
+              <div class="code-line line7">
+                <span class="line-number">7</span>
+                <span class="tag">&lt;h1&gt;</span
+                ><span class="content">Software Engineer & Builder</span
+                ><span class="tag">&lt;/h1&gt;</span>
+              </div>
+              <div class="code-line line8">
+                <span class="line-number">8</span>
+                <span class="tag">&lt;p&gt;</span
+                ><span class="content">Building cool stuff in public</span
+                ><span class="tag">&lt;/p&gt;</span>
+              </div>
+              <div class="code-line line9">
+                <span class="line-number">9</span>
+                <span class="tag">&lt;/body&gt;</span>
+              </div>
+              <div class="code-line line10">
+                <span class="line-number">10</span>
+                <span class="tag">&lt;/html&gt;</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="hero-particles" id="particles-js"></div>
       </section>
-
-   
 
       <section id="about" class="about">
         <div class="container">
@@ -123,71 +164,76 @@
           <div class="about-content">
             <div class="about-text">
               <p>
-                I am a Computer Science Engineering student at Chandigarh
-                University with a CGPA of 8.34. I'm passionate about blockchain
-                technology, web development, and machine learning.
+                I'm a passionate Software Engineer with a focus on web
+                development and a growing interest in blockchain technologies. I
+                love building applications that solve real problems and sharing
+                my journey along the way.
               </p>
               <p>
-                I ranked 25th out of over 6,000 students in the university-wide
-                AMCAT exam and was selected for the prestigious 'Kargil Batch'
-                comprising the top 300 students.
+                My approach to coding combines clean architecture principles
+                with practical implementation. I believe in "learning by doing"
+                and constantly challenging myself with new projects and
+                technologies.
               </p>
               <p>
-                As an executive member of the IEEE Computer Society, I've
-                organized various technical events. I've also served as a Class
-                Representative, coordinating communication between students and
-                faculty.
+                When not coding, I explore new tech stacks, contribute to
+                open-source, and engage with the developer community. I'm also
+                interested in mindfulness practices and bringing creativity to
+                technical solutions.
               </p>
               <p>
-                In my free time, I enjoy mindfulness practices, singing,
-                designing, and gaming.
+                I'm currently deepening my expertise in full-stack development
+                while exploring blockchain solutions and smart contract
+                development.
               </p>
             </div>
             <div class="about-image">
               <div class="image-wrapper">
-                <img src="assets/images/profile-image.png" alt="Shiva Gupta" />
+                <img
+                  src="assets/images/profile-image.png"
+                  alt="Shiva Gupta profile picture"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-
       <section id="stats" class="stats">
         <div class="container">
+          <h2 class="section-title">At a Glance</h2>
           <div class="stats-container">
             <div class="stat-card">
-              <h2>3<sup>rd</sup></h2>
-              <p>Year CSE Student</p>
-            </div>
-            <div class="stat-card">
-              <h2>8.34</h2>
-              <p>CGPA at University</p>
-            </div>
-            <div class="stat-card">
               <h2>6+</h2>
-              <p>Projects Completed</p>
+              <p>Projects Built</p>
+            </div>
+            <div class="stat-card">
+              <h2>3+</h2>
+              <p>Languages</p>
             </div>
             <div class="stat-card">
               <h2>2+</h2>
-              <p>Years of Learning</p>
+              <p>Years Coding</p>
+            </div>
+            <div class="stat-card">
+              <h2>∞</h2>
+              <p>Learning Capacity</p>
             </div>
           </div>
         </div>
       </section>
 
-
       <section id="projects" class="projects">
         <div class="container">
           <h2 class="section-title">My Projects</h2>
           <div class="project-grid">
-            <div class="project-card">
+            <article class="project-card">
               <div class="project-info">
-                <h3>Web3 Ethereum-Based To-Do List Application</h3>
+                <h3>Web3 Ethereum-Based To-Do List</h3>
                 <p>
-                  A decentralized to-do list application built with React.js and
-                  Ethereum smart contracts, ensuring task management security
-                  and blockchain transparency.
+                  A decentralized task management app built with React.js and
+                  Ethereum smart contracts. Uses blockchain technology to ensure
+                  task data security and transparency.
                 </p>
                 <div class="project-tech">
                   <span>React.js</span>
@@ -200,19 +246,20 @@
                     href="https://github.com/shiva1290"
                     class="btn small-btn"
                     target="_blank"
+                    rel="noopener noreferrer"
                     >View Code</a
                   >
                 </div>
               </div>
-            </div>
+            </article>
 
-            <div class="project-card">
+            <article class="project-card">
               <div class="project-info">
-                <h3>Machine Learning Prediction Model</h3>
+                <h3>ML Housing Price Predictor</h3>
                 <p>
-                  Developed a predictive model using the Boston Housing Dataset
-                  with Python, scikit-learn, and pandas, achieving 95% accuracy
-                  in housing price prediction.
+                  A machine learning model that predicts housing prices with 95%
+                  accuracy. Built with Python, scikit-learn, and pandas using
+                  the Boston Housing Dataset.
                 </p>
                 <div class="project-tech">
                   <span>Python</span>
@@ -225,19 +272,20 @@
                     href="https://github.com/shiva1290/customer_satisfaction_mlops"
                     class="btn small-btn"
                     target="_blank"
+                    rel="noopener noreferrer"
                     >View Code</a
                   >
                 </div>
               </div>
-            </div>
+            </article>
 
-            <div class="project-card">
+            <article class="project-card">
               <div class="project-info">
-                <h3>Personal Portfolio Website</h3>
+                <h3>Modern Portfolio Website</h3>
                 <p>
-                  A responsive portfolio website built with HTML, CSS, and
-                  JavaScript, ensuring cross-browser compatibility and mobile
-                  responsiveness.
+                  A responsive portfolio site featuring dynamic animations and
+                  dark/light modes. Built with HTML, CSS and JavaScript with
+                  focus on responsive design and accessibility.
                 </p>
                 <div class="project-tech">
                   <span>HTML</span>
@@ -250,17 +298,19 @@
                     href="https://github.com/shiva1290"
                     class="btn small-btn"
                     target="_blank"
+                    rel="noopener noreferrer"
                     >View Code</a
                   >
                 </div>
               </div>
-            </div>
+            </article>
 
-            <div class="project-card">
+            <article class="project-card">
               <div class="project-info">
                 <h3>Library Management System</h3>
                 <p>
-                  A database management system project for library operations.
+                  A full-stack library operations platform with user
+                  authentication, book tracking, and borrowing workflows.
                 </p>
                 <div class="project-tech">
                   <span>JavaScript</span>
@@ -272,11 +322,12 @@
                     href="https://github.com/shiva1290/library-management-dbms-project"
                     class="btn small-btn"
                     target="_blank"
+                    rel="noopener noreferrer"
                     >View Code</a
                   >
                 </div>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </section>
@@ -291,25 +342,53 @@
               <div class="skill-items">
                 <div class="skill">
                   <div class="skill-name">C++ (Proficient)</div>
-                  <div class="skill-bar">
+                  <div
+                    class="skill-bar"
+                    role="progressbar"
+                    aria-valuenow="90"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-label="C++ proficiency 90%"
+                  >
                     <div class="skill-level" style="width: 90%"></div>
                   </div>
                 </div>
                 <div class="skill">
                   <div class="skill-name">HTML+CSS</div>
-                  <div class="skill-bar">
+                  <div
+                    class="skill-bar"
+                    role="progressbar"
+                    aria-valuenow="85"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-label="HTML+CSS proficiency 85%"
+                  >
                     <div class="skill-level" style="width: 85%"></div>
                   </div>
                 </div>
                 <div class="skill">
                   <div class="skill-name">JavaScript</div>
-                  <div class="skill-bar">
+                  <div
+                    class="skill-bar"
+                    role="progressbar"
+                    aria-valuenow="80"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-label="JavaScript proficiency 80%"
+                  >
                     <div class="skill-level" style="width: 80%"></div>
                   </div>
                 </div>
                 <div class="skill">
                   <div class="skill-name">Python</div>
-                  <div class="skill-bar">
+                  <div
+                    class="skill-bar"
+                    role="progressbar"
+                    aria-valuenow="75"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-label="Python proficiency 75%"
+                  >
                     <div class="skill-level" style="width: 75%"></div>
                   </div>
                 </div>
@@ -321,25 +400,53 @@
               <div class="skill-items">
                 <div class="skill">
                   <div class="skill-name">C++ STL</div>
-                  <div class="skill-bar">
+                  <div
+                    class="skill-bar"
+                    role="progressbar"
+                    aria-valuenow="85"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-label="C++ STL proficiency 85%"
+                  >
                     <div class="skill-level" style="width: 85%"></div>
                   </div>
                 </div>
                 <div class="skill">
                   <div class="skill-name">Python Libraries</div>
-                  <div class="skill-bar">
+                  <div
+                    class="skill-bar"
+                    role="progressbar"
+                    aria-valuenow="80"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-label="Python Libraries proficiency 80%"
+                  >
                     <div class="skill-level" style="width: 80%"></div>
                   </div>
                 </div>
                 <div class="skill">
                   <div class="skill-name">React.js</div>
-                  <div class="skill-bar">
+                  <div
+                    class="skill-bar"
+                    role="progressbar"
+                    aria-valuenow="75"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-label="React.js proficiency 75%"
+                  >
                     <div class="skill-level" style="width: 75%"></div>
                   </div>
                 </div>
                 <div class="skill">
                   <div class="skill-name">Bootstrap</div>
-                  <div class="skill-bar">
+                  <div
+                    class="skill-bar"
+                    role="progressbar"
+                    aria-valuenow="80"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-label="Bootstrap proficiency 80%"
+                  >
                     <div class="skill-level" style="width: 80%"></div>
                   </div>
                 </div>
@@ -347,14 +454,14 @@
             </div>
 
             <div class="skill-category">
-              <h3>Relevant Coursework</h3>
+              <h3>Technical Expertise</h3>
               <div class="skill-tags">
                 <span class="skill-tag">Data Structures and Algorithms</span>
-                <span class="skill-tag">Operating Systems</span>
-                <span class="skill-tag">DBMS</span>
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">MySQL</span>
-                <span class="skill-tag">Object Oriented Programming</span>
+                <span class="skill-tag">Frontend Development</span>
+                <span class="skill-tag">Git & Version Control</span>
+                <span class="skill-tag">Database Management</span>
+                <span class="skill-tag">Object-Oriented Programming</span>
+                <span class="skill-tag">Blockchain Development</span>
               </div>
             </div>
 
@@ -363,8 +470,9 @@
               <div class="skill-tags">
                 <span class="skill-tag">Problem Solving</span>
                 <span class="skill-tag">Self-learning</span>
-                <span class="skill-tag">Presentation</span>
+                <span class="skill-tag">Technical Writing</span>
                 <span class="skill-tag">Adaptability</span>
+                <span class="skill-tag">Building in Public</span>
               </div>
             </div>
           </div>
@@ -373,49 +481,56 @@
 
       <section id="experience" class="experience">
         <div class="container">
-          <h2 class="section-title">Professional Experience</h2>
+          <h2 class="section-title">Currently Learning</h2>
 
           <div class="timeline">
-            <div class="timeline-item">
+            <article class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
-                <h3>Co-Founder and CMO</h3>
-                <h4>Revibe Academy</h4>
-                <p class="timeline-date">July 2024 - December 2024</p>
+                <h3>Web Development Bootcamp</h3>
+                <h4>Colt Steele's Comprehensive Course</h4>
+                <p class="timeline-date">
+                  <time datetime="2024">2024</time> - Present
+                </p>
                 <p>
-                  Conducted market research, created marketing materials,
-                  managed social media, and supported strategy execution and
-                  daily operations.
+                  Learning modern web development from front to back. Covering
+                  HTML, CSS, JavaScript, Node.js, Express, MongoDB, and React
+                  with real-world projects and best practices.
                 </p>
               </div>
-            </div>
+            </article>
 
-            <div class="timeline-item">
+            <article class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
-                <h3>Marketing Intern</h3>
-                <h4>Arka Consultancy</h4>
-                <p class="timeline-date">May 2021 - May 2023</p>
+                <h3>Data Structures & Algorithms</h3>
+                <h4>TUF+ Comprehensive DSA Course</h4>
+                <p class="timeline-date">
+                  <time datetime="2024">2024</time> - Present
+                </p>
                 <p>
-                  Developed data-driven marketing campaigns, utilized content
-                  management systems and provided strategic insights on B2B
-                  sales and digital marketing.
+                  Mastering fundamental and advanced data structures and
+                  algorithms. Building problem-solving skills through daily
+                  practice and optimized implementations.
                 </p>
               </div>
-            </div>
+            </article>
 
-            <div class="timeline-item">
+            <article class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
-                <h3>Fundraising Intern</h3>
-                <h4>NGO</h4>
-                <p class="timeline-date">2023</p>
+                <h3>Open Source Contribution</h3>
+                <h4>Self-Directed Learning</h4>
+                <p class="timeline-date">
+                  <time datetime="2023">2023</time> - Present
+                </p>
                 <p>
-                  Supported underprivileged children's education by raising
-                  funds through networking and campaigns.
+                  Learning collaborative development through open-source
+                  projects. Focusing on meaningful contributions while improving
+                  code quality and Git workflow skills.
                 </p>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </section>
@@ -425,75 +540,92 @@
           <h2 class="section-title">Education & Certifications</h2>
 
           <div class="education-container">
-            <div class="education-item">
+            <article class="education-item">
               <h3>
                 Bachelor of Engineering in Computer Science and Engineering
               </h3>
               <h4>Chandigarh University</h4>
-              <p class="education-date">2023 - 2027</p>
+              <p class="education-date">
+                <time datetime="2023">2023</time> -
+                <time datetime="2027">2027</time>
+              </p>
               <p class="education-grade">CGPA: 8.34</p>
-            </div>
+            </article>
 
-            <div class="education-item">
-              <h3>12th Standard</h3>
+            <article class="education-item">
+              <h3>12<sup>th</sup> Standard</h3>
               <h4>Saraswati Paradise International Public School</h4>
-              <p class="education-date">2022 - 2023</p>
+              <p class="education-date">
+                <time datetime="2022">2022</time> -
+                <time datetime="2023">2023</time>
+              </p>
               <p class="education-grade">Percentage: 84.40%</p>
-            </div>
+            </article>
 
-            <div class="education-item">
-              <h3>10th Standard</h3>
+            <article class="education-item">
+              <h3>10<sup>th</sup> Standard</h3>
               <h4>Saraswati Paradise International Public School</h4>
-              <p class="education-date">2019 - 2020</p>
+              <p class="education-date">
+                <time datetime="2019">2019</time> -
+                <time datetime="2020">2020</time>
+              </p>
               <p class="education-grade">Percentage: 97.00%</p>
-            </div>
+            </article>
           </div>
 
           <h3 class="subsection-title">Certifications</h3>
           <div class="certifications-container">
-            <div class="certification-item">
+            <article class="certification-item">
               <div class="certification-icon">
                 <i class="fas fa-certificate"></i>
               </div>
               <div class="certification-content">
                 <h4>Introduction to Generative AI</h4>
                 <p class="certification-issuer">Google</p>
-                <p class="certification-date">July 2024</p>
+                <p class="certification-date">
+                  <time datetime="2024-07">July 2024</time>
+                </p>
               </div>
-            </div>
+            </article>
 
-            <div class="certification-item">
+            <article class="certification-item">
               <div class="certification-icon">
                 <i class="fas fa-certificate"></i>
               </div>
               <div class="certification-content">
                 <h4>Blockchain A-Z</h4>
-                <p class="certification-issuer">Chandigarh University</p>
-                <p class="certification-date">July 2024</p>
+                <p class="certification-issuer">Online Course</p>
+                <p class="certification-date">
+                  <time datetime="2024-07">July 2024</time>
+                </p>
               </div>
-            </div>
+            </article>
 
-            <div class="certification-item">
+            <article class="certification-item">
               <div class="certification-icon">
                 <i class="fas fa-certificate"></i>
               </div>
               <div class="certification-content">
                 <h4>Introduction to Ethereum Blockchain</h4>
                 <p class="certification-issuer">Infosys Springboard</p>
-                <p class="certification-date">July 2024</p>
+                <p class="certification-date">
+                  <time datetime="2024-07">July 2024</time>
+                </p>
               </div>
-            </div>
+            </article>
 
-            <div class="certification-item">
+            <article class="certification-item">
               <div class="certification-icon">
                 <i class="fas fa-certificate"></i>
               </div>
               <div class="certification-content">
-                <h4>Developing a Critical Thinking Mindset</h4>
-                <p class="certification-issuer">LinkedIn</p>
-                <p class="certification-date">September 2023</p>
+                <h4>Critical Thinking for Developers</h4>
+                <p class="certification-issuer">LinkedIn Learning</p>
+                <p class="certification-date">
+                  <time datetime="2023-09">September 2023</time>
+                </p>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </section>
@@ -503,47 +635,47 @@
           <h2 class="section-title">Achievements</h2>
 
           <div class="achievements-container">
-            <div class="achievement-item">
+            <article class="achievement-item">
               <div class="achievement-icon">
                 <i class="fas fa-trophy"></i>
               </div>
               <div class="achievement-content">
-                <h3>Ranked 25th in University-Wide AMCAT Exam</h3>
+                <h3>Open Source Contributor</h3>
                 <p>
-                  Achieved 25th position out of over 6,000 students; selected
-                  for the prestigious 'Kargil Batch' comprising the top 300
-                  students.
+                  Made meaningful contributions to developer tools and
+                  documentation projects, helping improve resources for the
+                  wider developer community.
                 </p>
               </div>
-            </div>
+            </article>
 
-            <div class="achievement-item">
+            <article class="achievement-item">
               <div class="achievement-icon">
-                <i class="fas fa-users"></i>
+                <i class="fas fa-code"></i>
               </div>
               <div class="achievement-content">
-                <h3>Executive Member of IEEE Society</h3>
+                <h3>100 Days of Code Challenge</h3>
                 <p>
-                  Served as an executive member and event lead for the IEEE
-                  Computer Society at Chandigarh University, organizing and
-                  leading various technical events.
+                  Successfully completed the 100 Days of Code challenge,
+                  building a diverse portfolio of mini-projects and sharing
+                  progress publicly.
                 </p>
               </div>
-            </div>
+            </article>
 
-            <div class="achievement-item">
+            <article class="achievement-item">
               <div class="achievement-icon">
-                <i class="fas fa-user-tie"></i>
+                <i class="fas fa-laptop-code"></i>
               </div>
               <div class="achievement-content">
-                <h3>Class Representative (CR)</h3>
+                <h3>Hackathon Finalist</h3>
                 <p>
-                  Led the class by coordinating communication between students
-                  and faculty, and supporting departmental initiatives for the
-                  Department of Career Planning, 4th Semester, 601-Kargil.
+                  Reached the finals in a competitive hackathon, developing an
+                  innovative solution under tight time constraints with
+                  effective teamwork.
                 </p>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </section>
@@ -560,7 +692,11 @@
                 </div>
                 <div class="contact-text">
                   <h3>Email</h3>
-                  <p>shivaguptacse@gmail.com</p>
+                  <p>
+                    <a href="mailto:shivaguptacse@gmail.com"
+                      >shivaguptacse@gmail.com</a
+                    >
+                  </p>
                 </div>
               </div>
 
@@ -570,7 +706,7 @@
                 </div>
                 <div class="contact-text">
                   <h3>Phone</h3>
-                  <p>+91 8219268543</p>
+                  <p><a href="tel:+918219268543">+91 8219268543</a></p>
                 </div>
               </div>
 
@@ -591,12 +727,16 @@
                     href="https://www.linkedin.com/in/shivaguptacse/"
                     target="_blank"
                     class="social-btn"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn Profile"
                     ><i class="fab fa-linkedin"></i
                   ></a>
                   <a
                     href="https://github.com/shiva1290"
                     target="_blank"
                     class="social-btn"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub Profile"
                     ><i class="fab fa-github"></i
                   ></a>
                 </div>
@@ -604,42 +744,49 @@
             </div>
 
             <div class="contact-form">
-                <form action="https://formbold.com/s/oeO1b" method="POST">
-                  <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required />
-                  </div>
-              
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required />
-                  </div>
-              
-                  <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required />
-                  </div>
-              
-                  <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows="5"
-                      required
-                    ></textarea>
-                  </div>
-              
-                  <button type="submit" class="btn primary-btn">
-                    Send Message
-                  </button>
-                </form>
-              </div>
-              
+              <form action="https://formbold.com/s/oeO1b" method="POST">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    autocomplete="name"
+                  />
+                </div>
 
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    autocomplete="email"
+                  />
+                </div>
 
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <input type="text" id="subject" name="subject" required />
+                </div>
 
-              
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="btn primary-btn">
+                  Send Message
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
@@ -654,7 +801,8 @@
           </div>
 
           <div class="footer-links">
-            <ul>
+            <p class="footer-links-title" id="footer-nav-title">Quick Links</p>
+            <ul aria-labelledby="footer-nav-title">
               <li><a href="#home">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#projects">Projects</a></li>
@@ -665,26 +813,39 @@
           </div>
 
           <div class="footer-social">
-            <a
-              href="https://www.linkedin.com/in/shivaguptacse/"
-              target="_blank"
-              class="social-btn"
-              ><i class="fab fa-linkedin"></i
-            ></a>
-            <a
-              href="https://github.com/shiva1290"
-              target="_blank"
-              class="social-btn"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a href="mailto:shiva.gupta1290@gmail.com" class="social-btn"
-              ><i class="fas fa-envelope"></i
-            ></a>
+            <p class="footer-social-title" id="footer-social-title">Connect</p>
+            <div aria-labelledby="footer-social-title">
+              <a
+                href="https://www.linkedin.com/in/shivaguptacse/"
+                target="_blank"
+                class="social-btn"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a
+                href="https://github.com/shiva1290"
+                target="_blank"
+                class="social-btn"
+                rel="noopener noreferrer"
+                aria-label="GitHub Profile"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a
+                href="mailto:shiva.gupta1290@gmail.com"
+                class="social-btn"
+                aria-label="Email Me"
+                ><i class="fas fa-envelope"></i
+              ></a>
+            </div>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <p>&copy; 2025 Shiva Gupta. All rights reserved.</p>
+          <p>
+            &copy; <time datetime="2025">2025</time> Shiva Gupta. All rights
+            reserved.
+          </p>
         </div>
       </div>
     </footer>

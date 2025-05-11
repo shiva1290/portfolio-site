@@ -585,6 +585,9 @@ nav.container {
     .cta-buttons {
         margin: 0 auto var(--mobile-component-spacing);
         max-width: 300px;
+        display: flex;
+        flex-direction: column; /* Stack buttons vertically on mobile */
+        gap: 15px; /* Add spacing between buttons on mobile */
     }
 }
 
@@ -603,6 +606,11 @@ nav.container {
     
     .parallax-interests {
         margin-bottom: calc(var(--spacing-2xl) + var(--spacing-2xl)) !important;
+    }
+    
+    .cta-buttons {
+        width: 100%;
+        gap: 15px; /* Ensure spacing between buttons is maintained */
     }
 }
 
@@ -1054,6 +1062,9 @@ header.scrolled nav.container {
 
 .cta-buttons {
     margin-bottom: 30px;
+    display: flex;
+    gap: 20px; /* Add spacing between buttons */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
 }
 
 .btn {
@@ -3799,6 +3810,7 @@ html {
 
     .cta-buttons {
         width: 100%;
+        gap: 15px; /* Ensure spacing between buttons is maintained */
     }
 
     .section-title {

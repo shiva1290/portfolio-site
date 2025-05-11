@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shiva Gupta | Computer Science Engineer</title>
+
+    <!-- Fix animation issues -->
+    <script>
+      document.documentElement.classList.remove("no-js");
+    </script>
+
     <link rel="stylesheet" href="css/style.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,7 +37,8 @@
     <header>
       <nav class="container">
         <div class="logo">Shiva Gupta</div>
-        <ul class="nav-links">
+        <!-- Regular desktop navigation -->
+        <ul class="nav-links desktop-nav">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
@@ -42,18 +49,146 @@
         </ul>
         <div class="nav-controls">
           <div class="theme-toggle">
-            <button id="theme-toggle-btn" aria-label="Toggle theme">
-              <span class="sun-icon"><i class="fas fa-sun"></i></span>
-              <span class="moon-icon"><i class="fas fa-moon"></i></span>
-            </button>
+            <label class="switch">
+              <input id="theme-toggle-btn" type="checkbox" />
+              <div class="slider round">
+                <div class="sun-moon">
+                  <svg id="moon-dot-1" class="moon-dot" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="50"></circle>
+                  </svg>
+                  <svg id="moon-dot-2" class="moon-dot" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="50"></circle>
+                  </svg>
+                  <svg id="moon-dot-3" class="moon-dot" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="50"></circle>
+                  </svg>
+                  <svg id="light-ray-1" class="light-ray" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="50"></circle>
+                  </svg>
+                  <svg id="light-ray-2" class="light-ray" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="50"></circle>
+                  </svg>
+                  <svg id="light-ray-3" class="light-ray" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="50"></circle>
+                  </svg>
+
+                  <svg id="cloud-1" class="cloud-dark" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="50"></circle>
+                  </svg>
+                  <svg id="cloud-2" class="cloud-dark" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="50"></circle>
+                  </svg>
+                  <svg id="cloud-3" class="cloud-dark" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="50"></circle>
+                  </svg>
+                  <svg id="cloud-4" class="cloud-light" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="50"></circle>
+                  </svg>
+                  <svg id="cloud-5" class="cloud-light" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="50"></circle>
+                  </svg>
+                  <svg id="cloud-6" class="cloud-light" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="50"></circle>
+                  </svg>
+                </div>
+                <div class="stars">
+                  <svg id="star-1" class="star" viewBox="0 0 20 20">
+                    <path
+                      d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+                    ></path>
+                  </svg>
+                  <svg id="star-2" class="star" viewBox="0 0 20 20">
+                    <path
+                      d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+                    ></path>
+                  </svg>
+                  <svg id="star-3" class="star" viewBox="0 0 20 20">
+                    <path
+                      d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+                    ></path>
+                  </svg>
+                  <svg id="star-4" class="star" viewBox="0 0 20 20">
+                    <path
+                      d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </label>
           </div>
-          <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+          <!-- New mobile menu toggle button -->
+          <div class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
       </nav>
+
+      <!-- New Mobile Navigation Menu -->
+      <div class="mobile-nav-container">
+        <div class="mobile-nav-header">
+          <div class="mobile-logo">Shiva Gupta</div>
+          <div class="mobile-nav-close">×</div>
+        </div>
+        <div class="mobile-nav-content">
+          <ul class="mobile-nav-links">
+            <li>
+              <a href="#home"><i class="fas fa-home"></i><span>Home</span></a>
+            </li>
+            <li>
+              <a href="#about"><i class="fas fa-user"></i><span>About</span></a>
+            </li>
+            <li>
+              <a href="#projects"
+                ><i class="fas fa-code"></i><span>Projects</span></a
+              >
+            </li>
+            <li>
+              <a href="#skills"
+                ><i class="fas fa-cogs"></i><span>Skills</span></a
+              >
+            </li>
+            <li>
+              <a href="#experience"
+                ><i class="fas fa-briefcase"></i><span>Experience</span></a
+              >
+            </li>
+            <li>
+              <a href="#education"
+                ><i class="fas fa-graduation-cap"></i><span>Education</span></a
+              >
+            </li>
+            <li>
+              <a href="#contact"
+                ><i class="fas fa-envelope"></i><span>Contact</span></a
+              >
+            </li>
+          </ul>
+
+          <div class="mobile-social-links">
+            <a
+              href="https://www.linkedin.com/in/shivaguptacse/"
+              target="_blank"
+              aria-label="LinkedIn Profile"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/shiva1290"
+              target="_blank"
+              aria-label="GitHub Profile"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:shiva.gupta1290@gmail.com" aria-label="Email Me">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile navigation backdrop overlay -->
+      <div class="mobile-nav-backdrop"></div>
     </header>
 
     <main>
@@ -102,6 +237,14 @@
 
         <div class="code-animation-container">
           <div class="code-card">
+            <div class="code-header">
+              <div class="code-circles">
+                <div class="code-circle circle-red"></div>
+                <div class="code-circle circle-yellow"></div>
+                <div class="code-circle circle-green"></div>
+              </div>
+              <div class="code-title">index.html</div>
+            </div>
             <div class="code-text">
               <div class="code-line line1">
                 <span class="line-number">1</span>
@@ -161,38 +304,55 @@
       <section id="about" class="about">
         <div class="container">
           <h2 class="section-title">About Me</h2>
-          <div class="about-content">
-            <div class="about-text">
-              <p>
-                I'm a passionate Software Engineer with a focus on web
-                development and a growing interest in blockchain technologies. I
-                love building applications that solve real problems and sharing
-                my journey along the way.
-              </p>
-              <p>
-                My approach to coding combines clean architecture principles
-                with practical implementation. I believe in "learning by doing"
-                and constantly challenging myself with new projects and
-                technologies.
-              </p>
-              <p>
-                When not coding, I explore new tech stacks, contribute to
-                open-source, and engage with the developer community. I'm also
-                interested in mindfulness practices and bringing creativity to
-                technical solutions.
-              </p>
-              <p>
-                I'm currently deepening my expertise in full-stack development
-                while exploring blockchain solutions and smart contract
-                development.
-              </p>
-            </div>
-            <div class="about-image">
-              <div class="image-wrapper">
-                <img
-                  src="assets/images/profile-image.png"
-                  alt="Shiva Gupta profile picture"
-                />
+          <div class="parallax-about-container">
+            <div class="parallax-left">
+              <div class="parallax-bio">
+                <h3>Background</h3>
+                <p>
+                  I'm a passionate Software Engineer with a focus on web
+                  development and a growing interest in blockchain technologies.
+                  I love building applications that solve real problems and
+                  sharing my journey along the way.
+                </p>
+                <div class="skill-tags-parallax">
+                  <span class="skill-tag-parallax">Web Dev</span>
+                  <span class="skill-tag-parallax">Blockchain</span>
+                  <span class="skill-tag-parallax">Problem Solving</span>
+                </div>
+              </div>
+
+              <div class="parallax-experience">
+                <h3>Approach</h3>
+                <p>
+                  My approach to coding combines clean architecture principles
+                  with practical implementation. I believe in "learning by
+                  doing" and constantly challenging myself with new projects and
+                  technologies.
+                </p>
+                <div class="skill-tags-parallax">
+                  <span class="skill-tag-parallax">Clean Code</span>
+                  <span class="skill-tag-parallax">Architecture</span>
+                  <span class="skill-tag-parallax">Learning by Doing</span>
+                </div>
+              </div>
+
+              <div class="parallax-interests">
+                <h3>Interests</h3>
+                <p>
+                  When not coding, I explore new tech stacks, contribute to
+                  open-source, and engage with the developer community. I'm also
+                  interested in mindfulness practices and bringing creativity to
+                  technical solutions.
+                </p>
+                <div class="parallax-icons">
+                  <div class="parallax-icon">
+                    <i class="fas fa-code-branch"></i>
+                  </div>
+                  <div class="parallax-icon"><i class="fas fa-brain"></i></div>
+                  <div class="parallax-icon">
+                    <i class="fas fa-lightbulb"></i>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -229,21 +389,21 @@
           <div class="project-grid">
             <article class="project-card">
               <div class="project-info">
-                <h3>Web3 Ethereum-Based To-Do List</h3>
+                <h3>NPTEL Cloud Practice Site</h3>
                 <p>
-                  A decentralized task management app built with React.js and
-                  Ethereum smart contracts. Uses blockchain technology to ensure
-                  task data security and transparency.
+                  A cloud computing practice website built for the NPTEL course
+                  to demonstrate cloud architecture principles and
+                  implementation.
                 </p>
                 <div class="project-tech">
-                  <span>React.js</span>
-                  <span>Ethereum</span>
-                  <span>Smart Contracts</span>
-                  <span>Blockchain</span>
+                  <span>JavaScript</span>
+                  <span>Cloud Computing</span>
+                  <span>Web Development</span>
+                  <span>Responsive Design</span>
                 </div>
                 <div class="project-links">
                   <a
-                    href="https://github.com/shiva1290"
+                    href="https://github.com/shiva1290/nptel-cloud-practise-site"
                     class="btn small-btn"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -255,16 +415,16 @@
 
             <article class="project-card">
               <div class="project-info">
-                <h3>ML Housing Price Predictor</h3>
+                <h3>Customer Satisfaction MLOps</h3>
                 <p>
-                  A machine learning model that predicts housing prices with 95%
-                  accuracy. Built with Python, scikit-learn, and pandas using
-                  the Boston Housing Dataset.
+                  An end-to-end machine learning operations project that
+                  predicts customer satisfaction using MLOps principles and
+                  continuous deployment.
                 </p>
                 <div class="project-tech">
                   <span>Python</span>
-                  <span>scikit-learn</span>
-                  <span>pandas</span>
+                  <span>MLOps</span>
+                  <span>Machine Learning</span>
                   <span>Data Analysis</span>
                 </div>
                 <div class="project-links">
@@ -295,31 +455,7 @@
                 </div>
                 <div class="project-links">
                   <a
-                    href="https://github.com/shiva1290"
-                    class="btn small-btn"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >View Code</a
-                  >
-                </div>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <div class="project-info">
-                <h3>Library Management System</h3>
-                <p>
-                  A full-stack library operations platform with user
-                  authentication, book tracking, and borrowing workflows.
-                </p>
-                <div class="project-tech">
-                  <span>JavaScript</span>
-                  <span>Database</span>
-                  <span>Management System</span>
-                </div>
-                <div class="project-links">
-                  <a
-                    href="https://github.com/shiva1290/library-management-dbms-project"
+                    href="https://github.com/shiva1290/portfolio-site"
                     class="btn small-btn"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -483,7 +619,7 @@
         <div class="container">
           <h2 class="section-title">Currently Learning</h2>
 
-          <div class="timeline">
+          <div class="timeline stair-layout">
             <article class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
@@ -519,15 +655,15 @@
             <article class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
-                <h3>Open Source Contribution</h3>
+                <h3>AI Tools & Prompt Engineering</h3>
                 <h4>Self-Directed Learning</h4>
                 <p class="timeline-date">
-                  <time datetime="2023">2023</time> - Present
+                  <time datetime="2024">2024</time> - Present
                 </p>
                 <p>
-                  Learning collaborative development through open-source
-                  projects. Focusing on meaningful contributions while improving
-                  code quality and Git workflow skills.
+                  Exploring AI-powered development tools like Cursor, Gemini,
+                  and GitHub Copilot. Learning prompt engineering techniques to
+                  enhance productivity and creativity.
                 </p>
               </div>
             </article>
@@ -575,22 +711,32 @@
 
           <h3 class="subsection-title">Certifications</h3>
           <div class="certifications-container">
-            <article class="certification-item">
+            <a
+              href="https://www.linkedin.com/in/shivaguptacse/details/certifications/"
+              class="certification-item"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div class="certification-icon">
-                <i class="fas fa-certificate"></i>
+                <i class="fab fa-google"></i>
               </div>
               <div class="certification-content">
                 <h4>Introduction to Generative AI</h4>
-                <p class="certification-issuer">Google</p>
+                <p class="certification-issuer">Google Cloud</p>
                 <p class="certification-date">
                   <time datetime="2024-07">July 2024</time>
                 </p>
               </div>
-            </article>
+            </a>
 
-            <article class="certification-item">
+            <a
+              href="https://www.linkedin.com/in/shivaguptacse/details/certifications/"
+              class="certification-item"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div class="certification-icon">
-                <i class="fas fa-certificate"></i>
+                <i class="fas fa-link"></i>
               </div>
               <div class="certification-content">
                 <h4>Blockchain A-Z</h4>
@@ -599,11 +745,16 @@
                   <time datetime="2024-07">July 2024</time>
                 </p>
               </div>
-            </article>
+            </a>
 
-            <article class="certification-item">
+            <a
+              href="https://www.linkedin.com/in/shivaguptacse/details/certifications/"
+              class="certification-item"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div class="certification-icon">
-                <i class="fas fa-certificate"></i>
+                <i class="fab fa-ethereum"></i>
               </div>
               <div class="certification-content">
                 <h4>Introduction to Ethereum Blockchain</h4>
@@ -612,11 +763,16 @@
                   <time datetime="2024-07">July 2024</time>
                 </p>
               </div>
-            </article>
+            </a>
 
-            <article class="certification-item">
+            <a
+              href="https://www.linkedin.com/in/shivaguptacse/details/certifications/"
+              class="certification-item"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div class="certification-icon">
-                <i class="fas fa-certificate"></i>
+                <i class="fab fa-linkedin"></i>
               </div>
               <div class="certification-content">
                 <h4>Critical Thinking for Developers</h4>
@@ -625,7 +781,7 @@
                   <time datetime="2023-09">September 2023</time>
                 </p>
               </div>
-            </article>
+            </a>
           </div>
         </div>
       </section>
@@ -814,7 +970,10 @@
 
           <div class="footer-social">
             <p class="footer-social-title" id="footer-social-title">Connect</p>
-            <div aria-labelledby="footer-social-title">
+            <div
+              class="social-icons-container"
+              aria-labelledby="footer-social-title"
+            >
               <a
                 href="https://www.linkedin.com/in/shivaguptacse/"
                 target="_blank"
@@ -852,5 +1011,23 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- Animation fallback script -->
+    <script>
+      // Ensure elements appear even if main script fails
+      setTimeout(function () {
+        document.querySelectorAll("section").forEach(function (section) {
+          section.classList.add("appear");
+        });
+
+        document
+          .querySelectorAll(
+            ".project-grid, .stair-layout, .stats-container, .education-container, .certifications-container, .achievements-container"
+          )
+          .forEach(function (container) {
+            container.classList.add("animated");
+          });
+      }, 1500);
+    </script>
   </body>
 </html>

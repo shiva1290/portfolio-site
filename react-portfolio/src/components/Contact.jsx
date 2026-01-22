@@ -4,8 +4,10 @@ import { useInView } from '../hooks/useInView';
 import { personalInfo } from '../data/portfolioData';
 import './Contact.css';
 
+const FORMBOLD_ENDPOINT = 'https://formbold.com/s/3VK0Z';
+
 const Contact = () => {
-  const [ref, inView] = useInView({ threshold: 0.1 });
+  const [sectionRef, inView] = useInView({ threshold: 0.1 });
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -34,15 +36,37 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus(null);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch(FORMBOLD_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        })
+      });
+
+      // FormBold returns JSON response
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        const errorData = await response.text();
+        console.error('FormBold error:', errorData);
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+    }
     
-    setSubmitStatus('success');
-    setFormData({ name: '', email: '', message: '' });
     setIsSubmitting(false);
-    
-    setTimeout(() => setSubmitStatus(null), 3000);
+    setTimeout(() => setSubmitStatus(null), 5000);
   };
 
   const contactInfo = [
@@ -60,7 +84,7 @@ const Contact = () => {
   return (
     <section id="contact" className="contact-section">
       <motion.div
-        ref={ref}
+        ref={sectionRef}
         className="container"
         variants={containerVariants}
         initial="hidden"
@@ -176,6 +200,16 @@ const Contact = () => {
                 animate={{ opacity: 1, y: 0 }}
               >
                 Message sent successfully! I'll get back to you soon.
+              </motion.p>
+            )}
+
+            {submitStatus === 'error' && (
+              <motion.p 
+                className="form-error"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                Oops! Something went wrong. Please try again or email me directly.
               </motion.p>
             )}
           </motion.form>

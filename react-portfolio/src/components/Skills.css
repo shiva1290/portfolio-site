@@ -1,0 +1,114 @@
+.skills-section {
+  padding: var(--spacing-3xl) 0;
+  background: linear-gradient(
+    180deg, 
+    transparent 0%, 
+    rgba(91, 141, 239, 0.02) 50%,
+    transparent 100%
+  );
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-3xl);
+}
+
+.skill-category {
+  padding: var(--spacing-xl);
+}
+
+.skill-category h3 {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-lg);
+  font-weight: 600;
+  text-align: center;
+}
+
+.skill-bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.skill-name {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.skill-percent {
+  color: var(--muted-text);
+}
+
+.skills-tags-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.skills-tags-section h3 {
+  font-size: 1.3rem;
+  color: var(--text-color);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+  font-weight: 500;
+}
+
+.skills-tags-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  justify-content: center;
+}
+
+.skill-tag-item {
+  background-color: rgba(91, 141, 239, 0.1);
+  color: var(--primary-color);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all var(--transition-normal);
+  border: 1px solid transparent;
+}
+
+.skill-tag-item:hover {
+  background-color: rgba(91, 141, 239, 0.2);
+  border-color: var(--primary-color);
+  box-shadow: 0 5px 15px rgba(91, 141, 239, 0.2);
+}
+
+.skill-tag-item.soft {
+  background-color: rgba(40, 200, 64, 0.1);
+  color: #28c840;
+}
+
+.skill-tag-item.soft:hover {
+  background-color: rgba(40, 200, 64, 0.2);
+  border-color: #28c840;
+  box-shadow: 0 5px 15px rgba(40, 200, 64, 0.2);
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .skill-category {
+    padding: var(--spacing-lg);
+  }
+}

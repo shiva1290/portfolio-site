@@ -614,24 +614,6 @@ nav.container {
     }
 }
 
-/* Remove old styles that could conflict */
-.sun-icon, .moon-icon {
-  display: none;
-}
-
-/* Burger menu for mobile */
-.burger {
-    display: none;
-    cursor: pointer;
-}
-
-.burger div {
-    width: 25px;
-    height: 2px;
-    background-color: var(--text-color);
-    margin: 5px;
-    transition: var(--transition);
-}
 
 /* Mobile Navigation */
 @media screen and (max-width: 768px) {
@@ -927,65 +909,21 @@ header.scrolled nav.container {
     margin-bottom: 0;
 }
 
-/* Animation for each line */
-.line1 {
+/* Line animations - consolidated */
+.line1, .line2, .line3, .line4, .line5, .line6, .line7, .line8, .line9, .line10 {
     animation: typing 1.5s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
-    animation-delay: 0s;
-}
-
-.line2 {
-    animation: typing 1.5s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
-    animation-delay: 1.5s;
     width: 0;
 }
-
-.line3 {
-    animation: typing 1.5s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
-    animation-delay: 3s;
-    width: 0;
-}
-
-.line4 {
-    animation: typing 1.5s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
-    animation-delay: 4.5s;
-    width: 0;
-}
-
-.line5 {
-    animation: typing 1.5s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
-    animation-delay: 6s;
-    width: 0;
-}
-
-.line6 {
-    animation: typing 1.5s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
-    animation-delay: 7.5s;
-    width: 0;
-}
-
-.line7 {
-    animation: typing 1.5s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
-    animation-delay: 9s;
-    width: 0;
-}
-
-.line8 {
-    animation: typing 1.5s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
-    animation-delay: 10.5s;
-    width: 0;
-}
-
-.line9 {
-    animation: typing 1.5s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
-    animation-delay: 12s;
-    width: 0;
-}
-
-.line10 {
-    animation: typing 1.5s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
-    animation-delay: 13.5s;
-    width: 0;
-}
+.line1 { animation-delay: 0s; }
+.line2 { animation-delay: 1.5s; }
+.line3 { animation-delay: 3s; }
+.line4 { animation-delay: 4.5s; }
+.line5 { animation-delay: 6s; }
+.line6 { animation-delay: 7.5s; }
+.line7 { animation-delay: 9s; }
+.line8 { animation-delay: 10.5s; }
+.line9 { animation-delay: 12s; }
+.line10 { animation-delay: 13.5s; }
 
 /* Typing animation */
 @keyframes typing {
@@ -1044,15 +982,6 @@ header.scrolled nav.container {
     color: var(--text-color);
 }
 
-.highlight {
-    /* Removing the highlight styling */
-    display: none;
-}
-
-.highlight::after {
-    /* Removing the highlight effect */
-    display: none;
-}
 
 .bold-name {
     color: var(--primary-color);
@@ -2049,19 +1978,10 @@ header.scrolled nav.container {
     margin-bottom: 30px;
 }
 
-.footer-social {
-    justify-content: center;
-    display: flex;
-}
-
 @media (min-width: 768px) {
     .footer-content {
         grid-template-columns: 1fr 1fr 1fr;
         text-align: left;
-    }
-    
-    .footer-social {
-        justify-content: flex-start;
     }
 }
 
@@ -2228,30 +2148,6 @@ img {
     display: block;
 }
 
-/* Animation for nav links */
-@keyframes navLinkFade {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0px);
-    }
-}
-
-.toggle .line1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.toggle .line2 {
-    opacity: 0;
-}
-
-.toggle .line3 {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-
 /* Section animations */
 section {
     opacity: 0.1; /* Start slightly visible instead of completely hidden */
@@ -2329,17 +2225,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-color);
 }
 
-/* Section titles consistency */
-.section-title {
-    font-size: var(--heading-2);
-    text-align: center;
-    margin-bottom: clamp(30px, 5vw, 50px);
-    position: relative;
-    color: var(--text-color);
-    font-weight: 400;
-    letter-spacing: -0.03em;
-}
-
 /* Card titles consistency */
 .project-card h3,
 .achievement-item h3,
@@ -2372,116 +2257,6 @@ p {
     margin-bottom: var(--spacing-md);
 }
 
-/* Add dotted line separator similar to Monetise */
-.dotted-separator {
-    width: 100%;
-    height: 1px;
-    background-image: linear-gradient(to right, var(--primary-color) 50%, transparent 50%);
-    background-size: 10px 1px;
-    background-repeat: repeat-x;
-    margin: 20px 0;
-}
-
-/* Checkmark styles similar to Monetise */
-.feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.feature-list li {
-    position: relative;
-    padding-left: 30px;
-    margin-bottom: 15px;
-    color: var(--text-color);
-}
-
-.feature-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
-    font-weight: bold;
-}
-
-/* Price tag styling similar to Monetise */
-.price-tag {
-    display: inline-block;
-    padding: 2px 8px;
-    background-color: rgba(91, 141, 239, 0.1);
-    border-radius: 4px;
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-left: 10px;
-    font-size: 0.9em;
-}
-
-/* Hero section update for Monetise style */
-.hero h1 {
-    font-size: var(--heading-1);
-    font-weight: 400;
-    line-height: 1.1;
-    margin-bottom: 25px;
-    color: var(--text-color);
-    letter-spacing: -0.03em;
-}
-
-.hero h2 {
-    font-size: var(--heading-3);
-    font-weight: 400;
-    margin-bottom: 25px;
-    color: var(--primary-color);
-}
-
-/* Update to match Monetise dotted line price layout */
-.pricing-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-}
-
-.pricing-item:last-child {
-    border-bottom: none;
-}
-
-.pricing-name {
-    display: flex;
-    align-items: center;
-}
-
-.pricing-name::before {
-    content: '✓';
-    color: var(--primary-color);
-    margin-right: 10px;
-    font-weight: bold;
-}
-
-.pricing-value {
-    font-weight: 600;
-    color: #aaa;
-}
-
-/* Total price row */
-.pricing-total {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0;
-    margin-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.total-label {
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
-.total-value {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--primary-color);
-}
 
 /* Update other specific heading styles to remove bold */
 .timeline-content h3,
@@ -2804,38 +2579,20 @@ p {
     }
 }
 
-/* Scroll animations */
+/* Scroll animations - consolidated */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 .scroll-animation {
@@ -2843,113 +2600,14 @@ p {
   will-change: transform, opacity;
 }
 
-.scroll-animation.fade-in-up {
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-.scroll-animation.fade-in-left {
-  animation: fadeInLeft 0.6s ease forwards;
-}
-
-.scroll-animation.fade-in-right {
-  animation: fadeInRight 0.6s ease forwards;
-}
-
-.scroll-animation.delay-100 {
-  animation-delay: 0.1s;
-}
-
-.scroll-animation.delay-200 {
-  animation-delay: 0.2s;
-}
-
-.scroll-animation.delay-300 {
-  animation-delay: 0.3s;
-}
-
-.scroll-animation.delay-400 {
-  animation-delay: 0.4s;
-}
-
-.scroll-animation.delay-500 {
-  animation-delay: 0.5s;
-}
-
-/* Section animations */
-section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-section.appear {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Card staggered animations */
-.project-grid article,
-.stair-layout article,
-.stats-container .stat-card,
-.education-container article,
-.certifications-container a,
-.achievements-container article {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.project-grid.animated article,
-.stair-layout.animated article,
-.stats-container.animated .stat-card,
-.education-container.animated article,
-.certifications-container.animated a,
-.achievements-container.animated article {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Staggered delay for multiple items */
-.project-grid.animated article:nth-child(1),
-.stair-layout.animated article:nth-child(1),
-.stats-container.animated .stat-card:nth-child(1),
-.education-container.animated article:nth-child(1),
-.certifications-container.animated a:nth-child(1),
-.achievements-container.animated article:nth-child(1) {
-  transition-delay: 0.1s;
-}
-
-.project-grid.animated article:nth-child(2),
-.stair-layout.animated article:nth-child(2),
-.stats-container.animated .stat-card:nth-child(2),
-.education-container.animated article:nth-child(2),
-.certifications-container.animated a:nth-child(2),
-.achievements-container.animated article:nth-child(2) {
-  transition-delay: 0.2s;
-}
-
-.project-grid.animated article:nth-child(3),
-.stair-layout.animated article:nth-child(3),
-.stats-container.animated .stat-card:nth-child(3),
-.education-container.animated article:nth-child(3),
-.certifications-container.animated a:nth-child(3),
-.achievements-container.animated article:nth-child(3) {
-  transition-delay: 0.3s;
-}
-
-.project-grid.animated article:nth-child(4),
-.stair-layout.animated article:nth-child(4),
-.stats-container.animated .stat-card:nth-child(4),
-.education-container.animated article:nth-child(4),
-.certifications-container.animated a:nth-child(4),
-.achievements-container.animated article:nth-child(4) {
-  transition-delay: 0.4s;
-}
-
-/* Smooth scrolling for the whole page */
-html {
-  scroll-behavior: smooth;
-}
+.scroll-animation.fade-in-up { animation: fadeInUp 0.6s ease forwards; }
+.scroll-animation.fade-in-left { animation: fadeInLeft 0.6s ease forwards; }
+.scroll-animation.fade-in-right { animation: fadeInRight 0.6s ease forwards; }
+.scroll-animation.delay-100 { animation-delay: 0.1s; }
+.scroll-animation.delay-200 { animation-delay: 0.2s; }
+.scroll-animation.delay-300 { animation-delay: 0.3s; }
+.scroll-animation.delay-400 { animation-delay: 0.4s; }
+.scroll-animation.delay-500 { animation-delay: 0.5s; }
 
 /* Light mode override for mobile nav */
 @media screen and (max-width: 768px) {
@@ -3205,28 +2863,6 @@ html {
     width: 100%;
 }
 
-.parallax-bio h3, .parallax-experience h3 {
-    color: var(--primary-color);
-    font-size: calc(var(--heading-3) * 0.8);
-    margin-bottom: var(--spacing-sm);
-    font-weight: 500;
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    width: 100%;
-}
-
-.parallax-bio h3::after, .parallax-experience h3::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-color), transparent);
-}
-
 .parallax-bio, .parallax-experience {
     margin-bottom: 0;
     transform: translateY(0);
@@ -3371,47 +3007,6 @@ html {
     transition: all 0.3s ease-in-out;
 }
 
-.decorative-1 {
-    position: absolute;
-    width: 140px;
-    height: 140px;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
-    border-radius: 16px;
-    top: -20px;
-    left: -20px;
-    z-index: 1;
-    transform: rotate(-10deg);
-}
-
-.decorative-2 {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #6166F1 0%, #7D75EA 100%);
-    border-radius: 12px;
-    bottom: -15px;
-    right: -15px;
-    z-index: 1;
-    transform: rotate(15deg);
-}
-
-.parallax-badge {
-    position: absolute;
-    bottom: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--card-bg);
-    color: var(--text-color);
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    z-index: 3;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    border: 1px solid var(--card-border);
-    backdrop-filter: blur(5px);
-}
-
 .parallax-image {
     position: absolute;
     width: 100%;
@@ -3494,13 +3089,6 @@ html {
     color: #000;
     transform: translateY(calc((var(--parallax-offset) * var(--parallax-speed-3) * -1.5) - 5px));
     box-shadow: 0 8px 20px rgba(91, 141, 239, 0.4);
-}
-
-.skill-tags-parallax {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px; /* Reduced from --spacing-xs */
-    margin-top: var(--spacing-md); /* Reduced from --spacing-sm */
 }
 
 .skill-tag-parallax {

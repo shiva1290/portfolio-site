@@ -3,16 +3,31 @@ const initCustomCursor = () => {
     const cursor = document.querySelector('.cursor');
     const follower = document.querySelector('.cursor-follower');
     
+    // Exit if cursor elements don't exist
+    if (!cursor || !follower) return;
+    
     let mouseX = 0, mouseY = 0;
     let posX = 0, posY = 0;
     const speed = 0.2; // lower is slower
+    let isMouseDown = false;
 
     const animate = () => {
         posX += (mouseX - posX) * speed;
         posY += (mouseY - posY) * speed;
 
-        cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-        follower.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
+        const scale = isMouseDown ? ' scale(0.7)' : '';
+        cursor.style.left = `${mouseX}px`;
+        cursor.style.top = `${mouseY}px`;
+        follower.style.left = `${posX}px`;
+        follower.style.top = `${posY}px`;
+        
+        if (isMouseDown) {
+            cursor.style.transform = 'translate(-50%, -50%) scale(0.7)';
+            follower.style.transform = 'translate(-50%, -50%) scale(0.7)';
+        } else {
+            cursor.style.transform = 'translate(-50%, -50%)';
+            follower.style.transform = 'translate(-50%, -50%)';
+        }
 
         requestAnimationFrame(animate);
     };
@@ -23,13 +38,11 @@ const initCustomCursor = () => {
     });
 
     document.addEventListener('mousedown', () => {
-        cursor.style.transform += ' scale(0.7)';
-        follower.style.transform += ' scale(0.7)';
+        isMouseDown = true;
     });
 
     document.addEventListener('mouseup', () => {
-        cursor.style.transform = cursor.style.transform.replace(' scale(0.7)', '');
-        follower.style.transform = follower.style.transform.replace(' scale(0.7)', '');
+        isMouseDown = false;
     });
 
     animate();
@@ -153,111 +166,47 @@ const navSlide = () => {
     });
 };
 
-// Scroll animations
-const scrollReveal = () => {
-    // Observer for sections
-    const sections = document.querySelectorAll('section');
+// Common container selector used across animations
+const ANIMATION_CONTAINERS = '.project-grid, .stair-layout, .stats-container, .education-container, .certifications-container, .achievements-container';
+
+// Helper to animate a section and its contents
+const animateSection = (section) => {
+    section.classList.add('appear');
+    section.querySelectorAll(ANIMATION_CONTAINERS).forEach(c => c.classList.add('animated'));
     
-    const sectionObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('appear');
-                    
-                    // Find animation containers within this section
-                    const containers = entry.target.querySelectorAll(
-                        '.project-grid, .stair-layout, .stats-container, ' +
-                        '.education-container, .certifications-container, .achievements-container'
-                    );
-                    
-                    containers.forEach(container => {
-                        container.classList.add('animated');
-                    });
-                    
-                    // Trigger animations for individual elements with scroll-animation class
-                    const animatedElements = entry.target.querySelectorAll('.scroll-animation');
-                    animatedElements.forEach((el, index) => {
-                        // Add default animation class if none specified
-                        if (!el.classList.contains('fade-in-up') && 
-                            !el.classList.contains('fade-in-left') && 
-                            !el.classList.contains('fade-in-right')) {
-                            el.classList.add('fade-in-up');
-                        }
-                        
-                        // Add delay class if none specified
-                        if (!el.classList.contains('delay-100') && 
-                            !el.classList.contains('delay-200') && 
-                            !el.classList.contains('delay-300') && 
-                            !el.classList.contains('delay-400') && 
-                            !el.classList.contains('delay-500')) {
-                            // Add staggered delay based on index
-                            const delayClass = `delay-${Math.min(5, (index + 1)) * 100}`;
-                            el.classList.add(delayClass);
-                        }
-                    });
-                    
-                    // Stop observing this section once it's been revealed
-                    sectionObserver.unobserve(entry.target);
-                }
-            });
-        },
-        {
-            threshold: 0.01, // Lower threshold - trigger earlier (changed from 0.05)
-            rootMargin: '0px 0px -5% 0px' // Trigger animation even earlier (changed from -10%)
+    section.querySelectorAll('.scroll-animation').forEach((el, i) => {
+        if (!['fade-in-up', 'fade-in-left', 'fade-in-right'].some(c => el.classList.contains(c))) {
+            el.classList.add('fade-in-up');
         }
-    );
-    
-    // Observe all sections
-    sections.forEach(section => {
-        sectionObserver.observe(section);
-        
-        // Force sections to be visible on initial load if they're already in viewport
-        if (isElementInViewport(section)) {
-            section.classList.add('appear');
-            
-            // Find and animate containers
-            const containers = section.querySelectorAll(
-                '.project-grid, .stair-layout, .stats-container, ' +
-                '.education-container, .certifications-container, .achievements-container'
-            );
-            
-            containers.forEach(container => {
-                container.classList.add('animated');
-            });
-            
-            // Animate individual elements
-            const animatedElements = section.querySelectorAll('.scroll-animation');
-            animatedElements.forEach((el, index) => {
-                // Default animation class if needed
-                if (!el.classList.contains('fade-in-up') && 
-                    !el.classList.contains('fade-in-left') && 
-                    !el.classList.contains('fade-in-right')) {
-                    el.classList.add('fade-in-up');
-                }
-                
-                // Add delay class if needed
-                if (!el.classList.contains('delay-100') && 
-                    !el.classList.contains('delay-200') && 
-                    !el.classList.contains('delay-300') && 
-                    !el.classList.contains('delay-400') && 
-                    !el.classList.contains('delay-500')) {
-                    const delayClass = `delay-${Math.min(5, (index + 1)) * 100}`;
-                    el.classList.add(delayClass);
-                }
-            });
+        if (![1,2,3,4,5].some(n => el.classList.contains(`delay-${n}00`))) {
+            el.classList.add(`delay-${Math.min(5, i + 1) * 100}`);
         }
     });
+};
+
+// Check if element is in viewport
+const isInViewport = (el) => {
+    const rect = el.getBoundingClientRect();
+    return rect.top <= window.innerHeight && rect.bottom >= 0;
+};
+
+// Scroll animations
+const scrollReveal = () => {
+    const sections = document.querySelectorAll('section');
     
-    // Helper function to check if element is in viewport
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.bottom >= 0 &&
-            rect.left <= (window.innerWidth || document.documentElement.clientWidth) &&
-            rect.right >= 0
-        );
-    }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateSection(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.01, rootMargin: '0px 0px -5% 0px' });
+    
+    sections.forEach(section => {
+        observer.observe(section);
+        if (isInViewport(section)) animateSection(section);
+    });
 };
 
 // Smooth scrolling for navigation links
@@ -354,103 +303,44 @@ const initGlowEffect = () => {
     });
 };
 
-const init3DTiltEffect = () => {
-    // Don't run on mobile
-    if (window.innerWidth <= 768 || document.body.classList.contains('touch-device')) return;
+// 3D tilt effect helper
+const add3DTilt = (element, threshold = 10) => {
+    if (!element) return;
     
-    const cards = document.querySelectorAll('.project-card, .stat-card, .education-item, .certification-item, .achievement-item');
+    element.style.transition = 'transform 0.2s ease';
+    element.style.transformStyle = 'preserve-3d';
+    element.style.willChange = 'transform';
+    if (element.style.transform === 'none') element.style.transform = '';
 
-    cards.forEach(card => {
-        // Ensure persistent styles
-        card.style.transition = 'transform 0.2s ease';
-        card.style.transformStyle = 'preserve-3d';
-        card.style.willChange = 'transform';
+    let reqId = null;
+
+    element.onmousemove = (e) => {
+        const rect = element.getBoundingClientRect();
+        const x = e.clientX - rect.left, y = e.clientY - rect.top;
+        const rotateX = (y - rect.height / 2) / threshold;
+        const rotateY = (rect.width / 2 - x) / threshold;
         
-        // Important: Remove any inline styles that might have been set by CSS
-        if (card.style.transform === 'none') {
-            card.style.transform = '';
-        }
+        if (reqId) cancelAnimationFrame(reqId);
+        reqId = requestAnimationFrame(() => {
+            element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+        });
+    };
 
-        let requestId = null;
-
-        const handleMouseMove = (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
-
-            if (requestId) cancelAnimationFrame(requestId);
-
-            requestId = requestAnimationFrame(() => {
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-            });
-        };
-
-        const handleMouseLeave = () => {
-            if (requestId) cancelAnimationFrame(requestId);
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-        };
-
-        // Avoid duplicate listeners
-        card.removeEventListener('mousemove', handleMouseMove);
-        card.removeEventListener('mouseleave', handleMouseLeave);
-
-        // Add listeners
-        card.addEventListener('mousemove', handleMouseMove);
-        card.addEventListener('mouseleave', handleMouseLeave);
-    });
+    element.onmouseleave = () => {
+        if (reqId) cancelAnimationFrame(reqId);
+        element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+    };
 };
 
-// 3D hover effect for code card
-const initCodeCard3DEffect = () => {
-    // Don't run on mobile
+const init3DTiltEffect = () => {
     if (window.innerWidth <= 768 || document.body.classList.contains('touch-device')) return;
-    
-    const card = document.querySelector('.code-card');
-    const THRESHOLD = 15;
-    
-    if (!card) return;
-    
-    // Remove any inline styles that might have been set by CSS
-    if (card.style.transform === 'none') {
-        card.style.transform = '';
-    }
-    
-    const handleHover = (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const percentX = (x / rect.width);
-        const percentY = (y / rect.height);
-        
-        // Set CSS variables for the glow effect
-        card.style.setProperty('--mouse-x', `${percentX * 100}%`);
-        card.style.setProperty('--mouse-y', `${percentY * 100}%`);
-        
-        const rotateY = (percentX - 0.5) * THRESHOLD * 2;
-        const rotateX = (0.5 - percentY) * THRESHOLD * 2;
-        
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-    };
-    
-    const resetStyles = () => {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-    };
-    
-    // Avoid duplicate listeners
-    card.removeEventListener('mousemove', handleHover);
-    card.removeEventListener('mouseleave', resetStyles);
-    
-    // Add listeners
-    card.addEventListener('mousemove', handleHover);
-    card.addEventListener('mouseleave', resetStyles);
+    document.querySelectorAll('.project-card, .stat-card, .education-item, .certification-item, .achievement-item')
+        .forEach(card => add3DTilt(card, 10));
+};
+
+const initCodeCard3DEffect = () => {
+    if (window.innerWidth <= 768 || document.body.classList.contains('touch-device')) return;
+    add3DTilt(document.querySelector('.code-card'), 15);
 };
 
 // Add responsive checks for touch devices
@@ -487,51 +377,20 @@ document.addEventListener('DOMContentLoaded', () => {
     initThemeToggle();
     navSlide();
     initParallaxEffect();
-    
-    // Initialize 3D effects
     init3DTiltEffect();
     initCodeCard3DEffect();
-    
-    // Periodically check to ensure 3D effects remain active
-    setInterval(() => {
-        init3DTiltEffect();
-        initCodeCard3DEffect();
-    }, 1500);
-    
-    // Slight delay for scroll animations to ensure DOM is fully loaded
-    setTimeout(() => {
-        scrollReveal();
-        
-        // Make sure all sections that are already in view are visible
-        document.querySelectorAll('section').forEach(section => {
-            if (section.getBoundingClientRect().top < window.innerHeight) {
-                section.classList.add('appear');
-            }
-        });
-    }, 100);
-    
     smoothScroll();
     formSubmit();
     initGlowEffect();
+    
+    // Delay scroll animations slightly to ensure DOM is ready
+    setTimeout(scrollReveal, 100);
 });
 
-// Recheck scroll animations on page load complete
+// Final check on page load
 window.addEventListener('load', () => {
-    // Force check all sections again after everything is loaded
     document.querySelectorAll('section').forEach(section => {
-        if (section.getBoundingClientRect().top < window.innerHeight) {
-            section.classList.add('appear');
-            
-            // Also make sure containers are animated
-            const containers = section.querySelectorAll(
-                '.project-grid, .stair-layout, .stats-container, ' +
-                '.education-container, .certifications-container, .achievements-container'
-            );
-            
-            containers.forEach(container => {
-                container.classList.add('animated');
-            });
-        }
+        if (isInViewport(section)) animateSection(section);
     });
 });
 

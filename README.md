@@ -1,6 +1,6 @@
 # Shiva Gupta's Portfolio
 
-A modern, responsive portfolio website showcasing my projects and skills as a Computer Science Engineer.
+A modern, responsive portfolio website built with React + Vite, showcasing my projects and skills as a Full-Stack Developer & Software Engineer.
 
 ## 🚀 Live Demo
 
@@ -8,68 +8,142 @@ Visit my portfolio: [shivagupta.top](https://shivagupta.top)
 
 ## ✨ Features
 
-- Responsive design that works on all devices
-- Dark theme with glowing UI elements
-- Interactive code animation in the hero section
-- Project showcase with filtering options
-- Skills and experience timeline
-- Contact form integration
-- Custom cursor and smooth animations
+- **Modern React Architecture** - Built with React 18 and Vite for blazing-fast performance
+- **Dark/Light Theme** - Seamless theme switching with system preference detection
+- **Custom Animated Cursor** - Interactive cursor with hover effects (desktop only)
+- **Responsive Design** - Optimized for all devices from mobile to large screens
+- **Smooth Animations** - Scroll-based reveal animations, 3D card effects, and parallax
+- **Interactive Code Animation** - Typing effect showcasing code snippets
+- **Animated Skill Bars** - Visual representation of technical proficiency
+- **3D Tilt Effects** - Interactive project cards with depth effects
+- **Glitch Text Effects** - Creative typography animations
+- **Contact Form** - FormBold integration for contact functionality
 
 ## 🛠️ Technologies Used
 
-- HTML5
-- CSS3 (with custom animations and transitions)
-- JavaScript (ES6+)
-- FormBold for contact form functionality
-- Vercel for deployment
+### Frontend
+- **React 18** - Component-based UI library
+- **Vite** - Next-generation frontend build tool
+- **CSS3** - Custom properties, animations, and transitions
+- **Framer Motion** - Animation library for React
+
+### Tools & Deployment
+- **Git & GitHub** - Version control
+- **Vercel** - Deployment platform
+- **FormBold** - Contact form backend
+
+## 📁 Project Structure
+
+```
+portfolio-website/
+├── legacy/                 # Original HTML/CSS/JS version
+│   ├── index.html
+│   ├── css/
+│   ├── js/
+│   └── assets/
+├── react-portfolio/        # New React version
+│   ├── public/
+│   ├── src/
+│   │   ├── components/     # React components
+│   │   ├── context/        # Theme context
+│   │   ├── data/           # Centralized portfolio data
+│   │   ├── hooks/          # Custom React hooks
+│   │   └── styles/         # Global styles & variables
+│   ├── package.json
+│   └── vite.config.js
+└── README.md
+```
 
 ## 📋 Sections
 
 - **Hero** - Introduction with animated code typing effect
-- **About** - Personal information and background
-- **Projects** - Showcase of my development work
-- **Skills** - Technical abilities and competencies
-- **Experience** - Work history and education
-- **Contact** - Form to get in touch
+- **About** - Personal information, summary, and skill tags
+- **Stats** - Key achievements and metrics
+- **Projects** - Featured development projects with 3D card effects
+- **Skills** - Technical abilities with animated progress bars
+- **Experience** - Professional work history
+- **Education** - Academic background and certifications
+- **Achievements** - Notable accomplishments
+- **Contact** - Contact form and social links
 
 ## 🔧 Setup and Installation
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
 
 1. Clone the repository:
 ```bash
 git clone https://github.com/shiva1290/portfolio-site.git
-```
-
-2. Navigate to the project directory:
-```bash
 cd portfolio-site
 ```
 
-3. Open `index.html` in your browser or use a local server:
+2. Navigate to the React project:
 ```bash
-# Using Python
-python -m http.server
+cd react-portfolio
 ```
 
-## 📱 Responsive Design
+3. Install dependencies:
+```bash
+npm install
+```
 
-The portfolio is fully responsive with optimized layouts for:
-- Mobile devices
-- Tablets
-- Desktops
-- Large screens
+4. Start the development server:
+```bash
+npm run dev
+```
+
+5. Open [http://localhost:5173](http://localhost:5173) in your browser
+
+### Building for Production
+
+```bash
+npm run build
+```
+
+The built files will be in the `dist/` directory.
 
 ## 🎨 Customization
 
-You can customize this portfolio by:
-- Updating the content in HTML files
-- Modifying colors in the CSS variables
-- Adding your own projects to the projects section
-- Changing the animations and transitions
+### Updating Content
+All portfolio content is centralized in `src/data/portfolioData.js`:
+- Personal information
+- Projects
+- Skills
+- Experience
+- Education
+- Certifications
+- Achievements
+
+### Theming
+CSS variables are defined in `src/styles/variables.css`:
+- Colors (primary, secondary, accent)
+- Typography
+- Spacing
+- Shadows and borders
+
+## 📱 Responsive Breakpoints
+
+- **Mobile**: < 480px
+- **Tablet**: 480px - 768px
+- **Desktop**: 768px - 1024px
+- **Large Desktop**: > 1024px
 
 ## 📞 Contact
 
 Feel free to reach out if you have any questions or suggestions:
-- Email: shiva.gupta1290@gmail.com
-- LinkedIn: [shivaguptacse](https://www.linkedin.com/in/shivaguptacse/)
-- GitHub: [shiva1290](https://github.com/shiva1290)
+
+- **Email**: [shivaguptacse@gmail.com](mailto:shivaguptacse@gmail.com)
+- **LinkedIn**: [shivaguptacse](https://www.linkedin.com/in/shivaguptacse/)
+- **GitHub**: [shiva1290](https://github.com/shiva1290)
+- **Coding Profiles**: [Codolio](https://codolio.com/profile/shivagupta24)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+Made with ❤️ by Shiva Gupta

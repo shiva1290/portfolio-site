@@ -1,0 +1,103 @@
+.achievements-section {
+  padding: var(--spacing-3xl) 0;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl);
+}
+
+.achievement-card {
+  padding: var(--spacing-xl);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.achievement-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(91, 141, 239, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.achievement-card:hover::before {
+  opacity: 1;
+}
+
+.achievement-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-lg);
+  font-size: 1.8rem;
+  position: relative;
+  z-index: 1;
+}
+
+.achievement-icon.trophy {
+  background: linear-gradient(135deg, #ffd700, #ffed4a);
+  color: #333;
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+}
+
+.achievement-icon.code {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(91, 141, 239, 0.3);
+}
+
+.achievement-icon.cloud {
+  background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+  color: #333;
+  box-shadow: 0 10px 30px rgba(192, 192, 192, 0.3);
+}
+
+.achievement-card h3 {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  z-index: 1;
+}
+
+.achievement-card p {
+  color: var(--muted-text);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .achievements-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .achievement-card {
+    padding: var(--spacing-lg);
+  }
+
+  .achievement-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+}

@@ -9,18 +9,17 @@ export const personalInfo = {
   github: "https://github.com/shiva1290",
   codingProfiles: "https://codolio.com/profile/shivagupta24",
   resumePath: "https://drive.google.com/drive/folders/1g3ma235YPKZjOaNXsv4kO9v0onTHW1Kl",
-  summary: `Full-Stack Developer passionate about building scalable web applications 
-    using React, Node.js, Express, and MongoDB. With 500+ DSA problems solved 
-    and hands-on experience in creating production-ready applications, 
-    I turn complex ideas into elegant, efficient solutions.`,
-  approach: `I design robust RESTful APIs with clean architecture principles, 
-    implement secure authentication with JWT, and follow best practices 
-    for database design. My code prioritizes scalability, maintainability, 
-    and performance.`
+  summary: `Computer Science undergraduate with strong foundations in Data Structures 
+    and Algorithms (700+ problems solved) and hands-on experience building and 
+    deploying full-stack web applications using React, Spring Boot, and RESTful APIs.`,
+  approach: `I architect production-grade backends with Spring Boot and secure 
+    authentication (JWT, Spring Security), design relational schemas in PostgreSQL, 
+    and build responsive React frontends — always prioritizing clean code, 
+    scalability, and maintainability.`
 };
 
 export const stats = [
-  { value: "500+", label: "DSA Problems Solved" },
+  { value: "700+", label: "DSA Problems Solved" },
   { value: "Top 1%", label: "AMCAT College Rank" },
   { value: "Top 5%", label: "NPTEL Cloud Computing" },
   { value: "8.45", label: "CGPA at Chandigarh University" }
@@ -29,92 +28,100 @@ export const stats = [
 export const projects = [
   {
     id: 1,
-    title: "ApplyRec – Job Application Tracker",
-    description: `A full-stack web application to track job applications across multiple 
-      hiring stages with secure JWT-based authentication. Features RESTful APIs 
-      and optimized database schema with indexing for fast search and filtering.`,
-    tech: ["React", "Node.js", "Express", "MySQL", "JWT Auth"],
+    title: "ClassWise – University Management Dashboard",
+    description: `A full-stack dashboard with a React/Refine frontend and Spring Boot REST API 
+      to manage departments, subjects, classes, and faculty. Features role-based access 
+      control with session-based authentication supporting admin, teacher, and student 
+      workflows, plus backend safeguards including rate limiting and Spring Security.`,
+    tech: ["React", "Spring Boot", "PostgreSQL", "TypeScript", "Java"],
     github: "https://github.com/shiva1290",
-    live: "https://applyrec.vercel.app/"
+    live: "https://classwise-frontend-tolx.vercel.app"
   },
   {
     id: 2,
-    title: "LifeOS – Personal Productivity Platform",
-    description: `A modular productivity platform featuring tasks, goals, analytics dashboards, 
-      and responsive UI across devices. Built with scalable backend APIs supporting 
-      pagination, filtering, and Git-based version control.`,
-    tech: ["React", "Node.js", "MongoDB", "REST APIs"],
+    title: "ApplyRec – Job Application Tracker",
+    description: `A full-stack job application tracker supporting multi-stage hiring workflows 
+      (Applied, OA, Interview, Offer, Rejected) with search, filtering, and analytics 
+      dashboard. Built with 10+ RESTful APIs, JWT authentication, and bcrypt password 
+      hashing in Spring Boot. Deployed on Vercel + Render with managed PostgreSQL.`,
+    tech: ["React", "Java", "Spring Boot", "PostgreSQL", "JWT"],
     github: "https://github.com/shiva1290",
-    live: "https://life.shivagupta.top"
-  },
-  {
-    id: 3,
-    title: "Modern Portfolio Website",
-    description: `A sleek, responsive personal portfolio featuring dynamic animations, 
-      dark/light modes, and 3D effects. Built with vanilla HTML, CSS and 
-      JavaScript with focus on performance and accessibility.`,
-    tech: ["HTML", "CSS", "JavaScript", "Responsive Design"],
-    github: "https://github.com/shiva1290/portfolio-site",
-    live: null
+    live: "https://applyrec-frontend.vercel.app"
   }
 ];
 
 export const skills = {
   programming: [
-    { name: "C++ (Proficient)", level: 90 },
+    { name: "C++", level: 90 },
+    { name: "Java", level: 85 },
     { name: "JavaScript", level: 85 },
-    { name: "Java", level: 75 }
+    { name: "Python (Basic)", level: 50 },
+    { name: "SQL", level: 80 }
   ],
-  webBackend: [
-    { name: "React.js", level: 85 },
-    { name: "Node.js & Express.js", level: 80 },
-    { name: "REST APIs", level: 85 },
-    { name: "HTML + CSS", level: 90 }
+  frontend: [
+    { name: "React.js", level: 88 },
+    { name: "HTML5 & CSS3", level: 90 },
+    { name: "State Management", level: 80 },
+    { name: "TypeScript", level: 70 }
+  ],
+  backend: [
+    { name: "Java & Spring Boot", level: 85 },
+    { name: "RESTful APIs", level: 88 },
+    { name: "Authentication (JWT)", level: 85 },
+    { name: "Node.js & Express", level: 75 }
   ],
   databases: [
+    { name: "PostgreSQL", level: 85 },
     { name: "MySQL", level: 80 },
-    { name: "MongoDB", level: 75 },
-    { name: "Data Structures & Algorithms", level: 90 }
+    { name: "MongoDB", level: 70 }
   ],
-  technical: [
+  coreCS: [
     "Data Structures & Algorithms",
     "Object-Oriented Programming",
     "DBMS",
-    "Basic System Design",
+    "Operating Systems",
+    "Computer Networks"
+  ],
+  tools: [
     "Git & GitHub",
     "Postman",
     "Vercel",
-    "Railway"
-  ],
-  soft: [
-    "Problem Solving",
-    "Teamwork",
-    "Communication",
-    "Self-learning",
-    "Technical Writing"
+    "Render"
   ]
 };
 
 export const experience = [
   {
     id: 1,
+    title: "Co-Founder",
+    company: "Revibe Academy",
+    period: "2021 - 2023",
+    description: `Co-founded a social media marketing agency serving 5–10 active clients; 
+      managed end-to-end content, ad, and delivery pipelines using data-driven 
+      workflows and automation tools. Leveraged platform analytics (Meta Ads Manager, 
+      YouTube Studio) to track KPIs and optimize content strategy — improving average 
+      client engagement rates by over 30%.`
+  }
+];
+
+export const extracurricular = [
+  {
+    id: 1,
     title: "Executive Member",
-    company: "IEEE Computer Society, Chandigarh University",
-    period: "2023 - 2024",
-    description: `Coordinated and executed 5+ workshops and events with 1000+ attendees, 
-      contributing to technical planning, logistics, and execution. Worked with 
-      cross-functional student teams to standardize workflows and improve event 
-      delivery efficiency.`
+    organization: "IEEE Computer Society, Chandigarh University",
+    description: "Organized large-scale technical workshops and coordinated student technical initiatives."
   },
   {
     id: 2,
-    title: "Co-Founder",
-    company: "Revibe Academy (Early-stage Startup)",
-    period: "2021 - 2023",
-    description: `Co-founded and operated an early-stage startup serving 5–10 clients; 
-      handled operations, analytics review, and process optimization. Worked 
-      directly with clients to gather requirements, iterate on offerings, 
-      and manage delivery timelines.`
+    title: "Volunteer",
+    organization: "Muskurahat Foundation",
+    description: "Contributed to community outreach initiatives for underprivileged children."
+  },
+  {
+    id: 3,
+    title: "Class Representative (3× Elected)",
+    organization: "Dept. of Career Planning, Chandigarh University",
+    description: "Elected three consecutive times to represent peers, coordinate academic communications, and liaise between students and faculty."
   }
 ];
 
@@ -175,19 +182,19 @@ export const certifications = [
 export const achievements = [
   {
     id: 1,
+    title: "700+ DSA Problems Solved",
+    description: `Solved over 700 Data Structures and Algorithms problems across 
+      LeetCode and TakeUForward, building deep problem-solving 
+      skills and competitive programming expertise.`,
+    icon: "code"
+  },
+  {
+    id: 2,
     title: "Top 1% AMCAT Rank",
     description: `Ranked in the Top 1% of students in college-wide AMCAT exam 
       across two consecutive semesters, demonstrating consistent 
       excellence in aptitude and technical skills assessment.`,
     icon: "trophy"
-  },
-  {
-    id: 2,
-    title: "500+ DSA Problems Solved",
-    description: `Solved over 500 Data Structures and Algorithms problems on 
-      LeetCode and TakeUForward, building strong problem-solving 
-      skills and competitive programming expertise.`,
-    icon: "code"
   },
   {
     id: 3,

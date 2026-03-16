@@ -26,8 +26,8 @@ const Hero = () => {
           {personalInfo.title}
         </h2>
         <p>
-          I build full-stack applications with modern web technologies like React, Node.js, and MongoDB. 
-          Passionate about solving complex problems and turning ideas into scalable solutions.
+          I build and deploy full-stack web applications with React, Spring Boot, and PostgreSQL. 
+          With 700+ DSA problems solved, I turn complex ideas into production-ready solutions.
         </p>
         <div className="cta-buttons">
           <a 

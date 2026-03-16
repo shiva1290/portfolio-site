@@ -113,6 +113,61 @@
   margin: 0;
 }
 
+.subsection-title {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-top: var(--spacing-3xl);
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+}
+
+.subsection-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  margin: var(--spacing-sm) auto 0;
+  border-radius: 2px;
+}
+
+.extracurricular-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.extracurricular-card {
+  padding: var(--spacing-lg);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.extracurricular-card h4 {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.extracurricular-org {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+}
+
+.extracurricular-card p {
+  color: var(--muted-text);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
 /* Mobile Styles */
 @media screen and (max-width: 768px) {
   .timeline::before {

@@ -7,7 +7,7 @@ import './About.css';
 const About = () => {
   const [ref, inView] = useInView({ threshold: 0.2 });
 
-  const skillTags = ['React', 'Node.js', 'Express', 'MongoDB', 'MySQL', 'REST APIs'];
+  const skillTags = ['React', 'Spring Boot', 'Java', 'PostgreSQL', 'REST APIs', 'TypeScript'];
 
   const containerVariants = {
     hidden: { opacity: 0 },

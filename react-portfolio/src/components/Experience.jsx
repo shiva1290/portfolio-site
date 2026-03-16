@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from '../hooks/useInView';
-import { experience } from '../data/portfolioData';
+import { experience, extracurricular } from '../data/portfolioData';
 import './Experience.css';
 
 const Experience = () => {
@@ -33,7 +33,7 @@ const Experience = () => {
         animate={inView ? 'visible' : 'hidden'}
       >
         <motion.h2 className="section-title" variants={itemVariants}>
-          Professional Experience
+          Experience
         </motion.h2>
 
         <div className="timeline">
@@ -49,6 +49,25 @@ const Experience = () => {
                 <h4>{exp.company}</h4>
                 <p>{exp.description}</p>
               </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.h3 className="subsection-title" variants={itemVariants}>
+          Extracurricular Activities
+        </motion.h3>
+
+        <div className="extracurricular-grid">
+          {extracurricular.map(item => (
+            <motion.div 
+              key={item.id} 
+              className="extracurricular-card card"
+              variants={itemVariants}
+              whileHover={{ y: -5, transition: { duration: 0.3 } }}
+            >
+              <h4>{item.title}</h4>
+              <span className="extracurricular-org">{item.organization}</span>
+              <p>{item.description}</p>
             </motion.div>
           ))}
         </div>

@@ -44,13 +44,19 @@ const Skills = () => {
             inView={inView}
           />
           <SkillCategory 
-            title="Web & Backend" 
-            skills={skills.webBackend} 
+            title="Frontend Development" 
+            skills={skills.frontend} 
             variants={itemVariants}
             inView={inView}
           />
           <SkillCategory 
-            title="Databases & Core CS" 
+            title="Backend Development" 
+            skills={skills.backend} 
+            variants={itemVariants}
+            inView={inView}
+          />
+          <SkillCategory 
+            title="Databases" 
             skills={skills.databases} 
             variants={itemVariants}
             inView={inView}
@@ -58,9 +64,9 @@ const Skills = () => {
         </div>
 
         <motion.div className="skills-tags-section" variants={itemVariants}>
-          <h3>Technical Expertise</h3>
+          <h3>Core CS Fundamentals</h3>
           <div className="skills-tags-grid">
-            {skills.technical.map(skill => (
+            {skills.coreCS.map(skill => (
               <motion.span 
                 key={skill} 
                 className="skill-tag-item"
@@ -73,9 +79,9 @@ const Skills = () => {
         </motion.div>
 
         <motion.div className="skills-tags-section" variants={itemVariants}>
-          <h3>Soft Skills</h3>
+          <h3>Tools & Platforms</h3>
           <div className="skills-tags-grid">
-            {skills.soft.map(skill => (
+            {skills.tools.map(skill => (
               <motion.span 
                 key={skill} 
                 className="skill-tag-item soft"

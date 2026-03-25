@@ -27,7 +27,7 @@ const Hero = () => {
         </h2>
         <p>
           I build and deploy full-stack web applications with React, Spring Boot, and PostgreSQL. 
-          With 700+ DSA problems solved, I turn complex ideas into production-ready solutions.
+          With 500+ DSA problems solved, I turn complex ideas into production-ready solutions.
         </p>
         <div className="cta-buttons">
           <a 

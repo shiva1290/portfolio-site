@@ -33,7 +33,7 @@ const CodeAnimation = () => {
     { num: 5, content: '<span class="tag">&lt;/head&gt;</span>' },
     { num: 6, content: '<span class="tag">&lt;body&gt;</span>' },
     { num: 7, content: '<span class="tag">&lt;h1&gt;</span><span class="content">Full-Stack Developer</span><span class="tag">&lt;/h1&gt;</span>' },
-    { num: 8, content: '<span class="tag">&lt;p&gt;</span><span class="content">React | Spring Boot | PostgreSQL | 700+ DSA</span><span class="tag">&lt;/p&gt;</span>' },
+    { num: 8, content: '<span class="tag">&lt;p&gt;</span><span class="content">React | Spring Boot | PostgreSQL | 500+ DSA</span><span class="tag">&lt;/p&gt;</span>' },
     { num: 9, content: '<span class="tag">&lt;/body&gt;</span>' },
     { num: 10, content: '<span class="tag">&lt;/html&gt;</span>' }
   ];

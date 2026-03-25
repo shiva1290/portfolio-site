@@ -10,7 +10,7 @@ export const personalInfo = {
   codingProfiles: "https://codolio.com/profile/shivagupta24",
   resumePath: "https://drive.google.com/drive/folders/1g3ma235YPKZjOaNXsv4kO9v0onTHW1Kl",
   summary: `Computer Science undergraduate with strong foundations in Data Structures 
-    and Algorithms (700+ problems solved) and hands-on experience building and 
+    and Algorithms (500+ problems solved) and hands-on experience building and 
     deploying full-stack web applications using React, Spring Boot, and RESTful APIs.`,
   approach: `I architect production-grade backends with Spring Boot and secure 
     authentication (JWT, Spring Security), design relational schemas in PostgreSQL, 
@@ -19,7 +19,7 @@ export const personalInfo = {
 };
 
 export const stats = [
-  { value: "700+", label: "DSA Problems Solved" },
+  { value: "500+", label: "DSA Problems Solved" },
   { value: "Top 1%", label: "AMCAT College Rank" },
   { value: "Top 5%", label: "NPTEL Cloud Computing" },
   { value: "8.45", label: "CGPA at Chandigarh University" }
@@ -182,8 +182,8 @@ export const certifications = [
 export const achievements = [
   {
     id: 1,
-    title: "700+ DSA Problems Solved",
-    description: `Solved over 700 Data Structures and Algorithms problems across 
+    title: "500+ DSA Problems Solved",
+    description: `Solved over 500 Data Structures and Algorithms problems across 
       LeetCode and TakeUForward, building deep problem-solving 
       skills and competitive programming expertise.`,
     icon: "code"
